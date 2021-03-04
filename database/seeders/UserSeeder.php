@@ -21,15 +21,6 @@ class UserSeeder extends Seeder
             'name' => "admin",
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password'),
-            'is_admin' => '1',
-        ]);
-
-        // Create customer
-        User::create([
-            'name' => "customer",
-            'email' => 'customer@gmail.com',
-            'password' => Hash::make('password'),
-            'is_admin' => '0',
         ]);
     }
 }
