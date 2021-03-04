@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <x-app-layout>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    
     <x-slot name="header">
+        Welkom!
+    </x-slot>
+
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
@@ -112,6 +114,6 @@
             </div>
         </div>
     </body>
-    </x-slot>
+
 </html>
 </x-app-layout>

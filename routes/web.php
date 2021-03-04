@@ -19,10 +19,10 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})/*->middleware(['auth'])*/->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 Route::prefix('evenementen')->group(function (){
-    Route::get('/', 'EventController@Index')->middleware(['auth'])->name('getEventIndex');
+    Route::get('/', 'EventController@Index')/*->middleware(['auth'])*/->name('getEventIndex');
 });
