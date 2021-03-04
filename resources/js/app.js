@@ -1,3 +1,5 @@
-require('./bootstrap');
-
-require('alpinejs');
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+var __webpack_exports__ = {};
+/******/ })()
+;
