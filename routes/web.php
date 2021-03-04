@@ -25,4 +25,5 @@ require __DIR__.'/auth.php';
 
 Route::prefix('evenementen')->group(function (){
     Route::get('/', 'EventController@Index')/*->middleware(['auth'])*/->name('getEventIndex');
+    Route::get('/{id}/details', 'EventController@Show')->name('getEventDetails');
 });
