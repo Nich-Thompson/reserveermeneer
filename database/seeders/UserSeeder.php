@@ -16,8 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // TODO: php artisan db:seed does not seed, instead have to specify: php artisan db:seed --class=UserSeeder
-        $admin = User::create([
+        User::create([
             'name' => "admin",
             'email' => 'admin@gmail.com',
             'password' => Hash::make('password')
