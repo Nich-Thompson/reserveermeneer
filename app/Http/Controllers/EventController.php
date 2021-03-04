@@ -21,4 +21,15 @@ class EventController extends Controller
         $event =Event::find($id);
         return view('event.details', ['event' => $event]);
     }
+
+    public function create()
+    {
+        return view('event.create');
+    }
+
+    public function store()
+    {
+
+        return redirect()->route('getEventIndex');
+    }
 }

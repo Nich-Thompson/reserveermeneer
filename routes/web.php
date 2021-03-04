@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::prefix('evenementen')->group(function (){
-    Route::get('/', 'EventController@Index')/*->middleware(['auth'])*/->name('getEventIndex');
-    Route::get('/{id}/details', 'EventController@Show')->name('getEventDetails');
+    Route::get('/', 'EventController@index')->name('getEventIndex');
+    Route::get('/create', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
+    Route::post('/create', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
+    Route::get('/{id}/details', 'EventController@show')->name('getEventDetails');
 });
