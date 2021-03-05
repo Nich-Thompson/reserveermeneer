@@ -106,4 +106,14 @@ class EventController extends Controller
 
         return redirect()->route('getEventIndex');
     }
+
+    public function showReserve()
+    {
+        //
+    }
+
+    public function reserve()
+    {
+        //
+    }
 }
