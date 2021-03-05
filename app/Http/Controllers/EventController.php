@@ -27,9 +27,16 @@ class EventController extends Controller
         return view('event.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-
+        $request -> validate([
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'max_tickets' => 'required|min:1',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
         return redirect()->route('getEventIndex');
     }
 }
