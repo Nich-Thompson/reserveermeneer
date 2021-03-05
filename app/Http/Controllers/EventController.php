@@ -33,7 +33,7 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'max_tickets' => 'required|min:1',
+            'max_tickets' => 'required|gt:1',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
@@ -65,7 +65,7 @@ class EventController extends Controller
             'title' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'max_tickets' => 'required|min:1',
+            'max_tickets' => 'required|gt:0',
         ]);
 
         $event = Event::find($id);
@@ -112,8 +112,19 @@ class EventController extends Controller
         //
     }
 
-    public function reserve()
+    public function reserve(Request $request)
     {
         //
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('images'), $imageName);
+
+        return back()
+            ->with('success','Foto upload was successvol.')
+            ->with('image',$imageName);
     }
 }
