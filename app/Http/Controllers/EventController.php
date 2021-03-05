@@ -142,6 +142,6 @@ class EventController extends Controller
             $reservation->save(); // Finally, save the record.
         }
 
-        return view('event.index');
+        return redirect()->route('getEventIndex');
     }
 }
