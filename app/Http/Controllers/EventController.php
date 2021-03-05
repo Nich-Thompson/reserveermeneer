@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -107,24 +108,40 @@ class EventController extends Controller
         return redirect()->route('getEventIndex');
     }
 
-    public function showReserve()
+    public function showReserve($id)
     {
-        //
+        $event =Event::find($id);
+        return view('event.reserve', [
+            'event' => $event,
+            'id' => $id
+        ]);
     }
 
     public function reserve(Request $request)
     {
-        //
+        // Validate the inputs
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img_name' => 'required',
         ]);
 
-        $imageName = time().'.'.$request->image->extension();
+        // ensure the request has a file before we attempt anything else.
+        if ($request->hasFile('file')) {
 
-        $request->image->move(public_path('images'), $imageName);
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+            ]);
 
-        return back()
-            ->with('success','Foto upload was successvol.')
-            ->with('image',$imageName);
+            // Save the file locally in the storage/public/ folder under a new folder named /product
+            $request->file->store('reservation', 'public');
+
+            // Store the record, using the new file hashname which will be it's new filename identity.
+            $reservation = new Reservation([
+                "img_name" => $request->get('img_name'),
+                "img_path" => $request->file->hashName()
+            ]);
+            $reservation->save(); // Finally, save the record.
+        }
+
+        return view('event.index');
     }
 }

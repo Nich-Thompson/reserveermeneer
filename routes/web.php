@@ -34,4 +34,5 @@ Route::prefix('evenementen')->group(function (){
     Route::post('/{id}/delete', 'EventController@destroy')->middleware(['auth'])->name('postEventDelete');
     Route::get('/{id}/reserveer', 'EventController@showReserve')->name('getEventReserve');
     Route::post('/{id}/reserveer', 'EventController@reserve')->name('postEventReserve');
+    Route::resource('reservations', 'App\Http\Controllers\EventController');
 });
