@@ -28,4 +28,8 @@ Route::prefix('evenementen')->group(function (){
     Route::get('/create', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
     Route::post('/create', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
     Route::get('/{id}/details', 'EventController@show')->name('getEventDetails');
+    Route::get('/{id}/edit', 'EventController@edit')->name('getEventUpdate');
+    Route::post('/{id}/edit', 'EventController@update')->name('postEventUpdate');
+    Route::get('/{id}/delete', 'EventController@delete')->name('getEventDelete');
+    Route::post('/{id}/delete', 'EventController@destroy')->name('postEventDelete');
 });

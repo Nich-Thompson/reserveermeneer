@@ -18,8 +18,9 @@
                 @foreach($events as $event)
                     <div class="p-6 bg-white border-b border-gray-200">
                         <div class="d-flex flex-column w-50">
-                            {{ $event->title }}<br>
-                            {{ $event->description }}
+                            <b>{{ $event->title }}</b><br>
+                            {{ $event->description }}<br>
+                            {{ $event->price }}
                         </div>
                         <div class="d-flex flex-column justify-content-end w-50 text-right pb-2">
                             <a href="{{ route('getEventDetails', $event->id) }}">+Info</a>

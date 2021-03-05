@@ -49,4 +49,37 @@ class EventController extends Controller
 
         return redirect()->route('getEventIndex');
     }
+
+    public function edit($id)
+    {
+        $event =Event::find($id);
+        return view(event.edit, [
+            'event' => $event,
+            'id' => $id
+        ]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $request -> validate([
+            'title' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'max_tickets' => 'required|min:1',
+            'start_date' => 'required',
+            'end_date' => 'required',
+        ]);
+
+        $event = Event::find($id);
+        $event->title = $request->input('title');
+        $event->description = $request->input('description');
+        $event->price = $request->input('price');
+        $event->max_tickets = $request->input('max_tickets');
+        $event->start_date = $request->input('start_date');
+        $event->end_date = $request->input('end_date');
+
+        $event->save();
+
+        return redirect()->route('getEventIndex');
+    }
 }
