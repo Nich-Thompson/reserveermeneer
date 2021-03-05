@@ -37,6 +37,16 @@ class EventController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
+
+        Event::create([
+            'title' => $request->input('title'),
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'max_tickets' => $request->input('max_tickets'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+        ]);
+
         return redirect()->route('getEventIndex');
     }
 }
