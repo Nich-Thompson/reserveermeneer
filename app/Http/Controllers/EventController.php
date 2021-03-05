@@ -53,7 +53,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $event =Event::find($id);
-        return view(event.edit, [
+        return view('event.edit', [
             'event' => $event,
             'id' => $id
         ]);
@@ -66,8 +66,6 @@ class EventController extends Controller
             'description' => 'required',
             'price' => 'required',
             'max_tickets' => 'required|min:1',
-            'start_date' => 'required',
-            'end_date' => 'required',
         ]);
 
         $event = Event::find($id);
@@ -75,10 +73,36 @@ class EventController extends Controller
         $event->description = $request->input('description');
         $event->price = $request->input('price');
         $event->max_tickets = $request->input('max_tickets');
-        $event->start_date = $request->input('start_date');
-        $event->end_date = $request->input('end_date');
+
+        if($request->start_date != null || $request->end_date != null)
+        {
+            $request -> validate([
+                'start_date' => 'required',
+                'end_date' => 'required',
+            ]);
+            $event->start_date = $request->input('start_date');
+            $event->end_date = $request->input('end_date');
+        }
 
         $event->save();
+
+        return redirect()->route('getEventIndex');
+    }
+
+    public function delete($id)
+    {
+        $event =Event::find($id);
+        return view('event.delete', [
+            'event' => $event,
+            'id' => $id
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $event =Event::find($id);
+
+        $event->delete();
 
         return redirect()->route('getEventIndex');
     }
