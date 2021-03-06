@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('price');
+            $table->float('price');
             $table->integer('max_tickets');
             $table->dateTime('start_date');
             $table->dateTime('end_date');

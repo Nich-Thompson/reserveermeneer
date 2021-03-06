@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use App\Models\Reservation;
+use DateTime;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -124,7 +125,15 @@ class EventController extends Controller
         $request->validate([
             'name' => 'required',
             'file' => 'required|mimes:jpeg,png',
+            'email' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
         ]);
+
+        $startDateTime = new DateTime($request->start_date);
+        $endDateTime = new DateTime($request->end_date);
+        $interval = $startDateTime->diff($endDateTime);
+        $days = 1 + $interval->format('%a');
 
         // Save the file locally in storage/public/reservation
         $request->file->store('reservation', 'public');
@@ -137,7 +146,7 @@ class EventController extends Controller
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
             'end_date' => $request->input('end_date'),
-            'total_price' => $event->price,
+            'total_price' => $event->price*$days,
         ]);
         /*$reservation = new Reservation([
             "name" => $request->get('name'),

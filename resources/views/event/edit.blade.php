@@ -49,7 +49,7 @@
                             <div class="col-span-1  ">
                                 <label>Prijs</label>
                                 <div class="form-group">
-                                    <input type="text" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}">
+                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}">
                                 </div>
                             </div>
                             <div class="col-span-1">

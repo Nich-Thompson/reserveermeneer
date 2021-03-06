@@ -27,7 +27,7 @@ class CreateReservationsTable extends Migration
             $table->string('img_path');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->string('total_price');
+            $table->float('total_price');
             $table->timestamps();
         });
     }

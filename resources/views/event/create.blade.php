@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-span-1  ">
                                 <div class="form-group">
-                                    <input type="text" name="price" class="form-control w-full" placeholder="Prijs">
+                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs">
                                 </div>
                             </div>
                             <div class="col-span-1">

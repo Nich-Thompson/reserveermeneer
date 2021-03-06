@@ -13,7 +13,7 @@
                         <b>Beschrijving:</b> {{ $event->description }}<br>
                         <b>Van:</b> {{ $event->start_date }}<br>
                         <b>Tot:</b> {{ $event->end_date }}<br>
-                        <b>Prijs:</b> {{ $event->price }}<br>
+                        <b>Prijs:</b> {{ $event->price }} euro<br>
                     </div>
 
                     <div class=" text-left">
