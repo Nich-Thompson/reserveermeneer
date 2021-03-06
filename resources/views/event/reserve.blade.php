@@ -20,11 +20,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <form action="{{ route('postEventReserve', 'id' ) }}" method="post" enctype="multipart/form-data">
-                        <!-- Add CSRF Token -->
                         @csrf
                         <div class="form-group">
                             <label>Product Name</label>
-                            <input type="text" class="form-control" name="img_name" required>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <div class="form-group">
                             <input type="file" name="file" required>

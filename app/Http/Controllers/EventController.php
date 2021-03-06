@@ -119,27 +119,28 @@ class EventController extends Controller
 
     public function reserve(Request $request)
     {
-        // Validate the inputs
         $request->validate([
-            'img_name' => 'required',
+            'name' => 'required',
+            'file' => 'required',
         ]);
 
-        // ensure the request has a file before we attempt anything else.
+        // Make sure the file isn't null
         if ($request->hasFile('file')) {
 
             $request->validate([
-                'image' => 'mimes:jpeg,bmp,png' // Only allow .jpg, .bmp and .png file types.
+                // Make sure the image is a png or jpeg
+                'image' => 'mimes:jpeg,png'
             ]);
 
-            // Save the file locally in the storage/public/ folder under a new folder named /product
+            // Save the file locally in storage/public/reservation
             $request->file->store('reservation', 'public');
 
-            // Store the record, using the new file hashname which will be it's new filename identity.
+            // Save hash to db
             $reservation = new Reservation([
                 "img_name" => $request->get('img_name'),
                 "img_path" => $request->file->hashName()
             ]);
-            $reservation->save(); // Finally, save the record.
+            $reservation->save();
         }
 
         return redirect()->route('getEventIndex');
