@@ -23,7 +23,7 @@
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
-                                <p>Titel</p>
+                                <label>Titel</label>
                                 <div class="form-group">
                                     <input type="text" name="title" class="form-control w-full" value="{{ $event->title }}">
                                 </div>
@@ -35,31 +35,31 @@
                                 </a>
                             </div>
                             <div class="col-span-2">
-                                <p>Beschrijving</p>
+                                <label>Beschrijving</label>
                                 <div class="form-group">
                                     <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving" value="{{ $event->description }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <p>Max. aantal tickets</p>
+                                <label>Max. aantal tickets</label>
                                 <div class="form-group">
                                     <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ $event->max_tickets }}">
                                 </div>
                             </div>
                             <div class="col-span-1  ">
-                                <p>Prijs</p>
+                                <label>Prijs</label>
                                 <div class="form-group">
                                     <input type="text" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <p>Begindatum</p>
+                                <label>Begindatum</label>
                                 <div class="form-group">
                                     <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500" >
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <p>Einddatum</p>
+                                <label>Einddatum</label>
                                 <div class="form-group">
                                     <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500" >
                                 </div>

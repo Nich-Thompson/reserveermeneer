@@ -117,31 +117,33 @@ class EventController extends Controller
         ]);
     }
 
-    public function reserve(Request $request)
+    public function reserve(Request $request, $id)
     {
+        $event =Event::find($id);
+
         $request->validate([
             'name' => 'required',
-            'file' => 'required',
+            'file' => 'required|mimes:jpeg,png',
         ]);
 
-        // Make sure the file isn't null
-        if ($request->hasFile('file')) {
+        // Save the file locally in storage/public/reservation
+        $request->file->store('reservation', 'public');
 
-            $request->validate([
-                // Make sure the image is a png or jpeg
-                'image' => 'mimes:jpeg,png'
-            ]);
-
-            // Save the file locally in storage/public/reservation
-            $request->file->store('reservation', 'public');
-
-            // Save hash to db
-            $reservation = new Reservation([
-                "img_name" => $request->get('img_name'),
-                "img_path" => $request->file->hashName()
-            ]);
-            $reservation->save();
-        }
+        // Save hash to db
+        Reservation::create([
+            'event_id' => $event->id,
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'img_path' => $request->file->hashName(),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'total_price' => $event->price,
+        ]);
+        /*$reservation = new Reservation([
+            "name" => $request->get('name'),
+            "img_path" => $request->file->hashName()
+        ]);
+        $reservation->save();*/
 
         return redirect()->route('getEventIndex');
     }

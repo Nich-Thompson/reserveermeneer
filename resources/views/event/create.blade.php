@@ -43,15 +43,15 @@
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <p>Begindatum</p>
+                                <label>Begindatum</label>
                                 <div class="form-group">
-                                    <input type="date" name="start_date" class="form-control w-full text-gray-500">
+                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500">
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <p>Einddatum</p>
+                                <label>Einddatum</label>
                                 <div class="form-group">
-                                    <input type="date" name="end_date" class="form-control w-full text-gray-500">
+                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500">
                                 </div>
                             </div>
 
