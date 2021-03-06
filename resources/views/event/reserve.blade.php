@@ -42,7 +42,7 @@
                                     <input type="date" class="form-control w-full text-gray-500" name="end_date" required>
                                 </div>
                             </div>
-                            <div class="col-span-1">
+                            <div class="col-span-2">
                                 <div class="form-group">
                                     <input type="file" name="file" required>
                                 </div>

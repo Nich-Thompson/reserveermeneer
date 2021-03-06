@@ -24,34 +24,34 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" name="title" class="form-control w-full" placeholder="Titel">
+                                    <input type="text" name="title" class="form-control w-full" placeholder="Titel" required>
                                 </div>
                             </div>
                             <div class="col-span-2">
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving">
+                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving" required>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets">
+                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" required>
                                 </div>
                             </div>
                             <div class="col-span-1  ">
                                 <div class="form-group">
-                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs">
+                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" required>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Begindatum</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500">
+                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500" required>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Einddatum</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500">
+                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500" required>
                                 </div>
                             </div>
 
