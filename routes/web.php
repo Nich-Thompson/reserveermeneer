@@ -25,14 +25,14 @@ require __DIR__.'/auth.php';
 
 Route::prefix('evenementen')->group(function (){
     Route::get('/', 'EventController@index')->name('getEventIndex');
-    Route::get('/aanmaken', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
-    Route::post('/aanmaken', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
-    Route::get('/{id}/details', 'EventController@show')->name('getEventDetails');
-    Route::get('/{id}/edit', 'EventController@edit')->middleware(['auth'])->name('getEventUpdate');
-    Route::post('/{id}/edit', 'EventController@update')->middleware(['auth'])->name('postEventUpdate');
-    Route::get('/{id}/delete', 'EventController@delete')->middleware(['auth'])->name('getEventDelete');
-    Route::post('/{id}/delete', 'EventController@destroy')->middleware(['auth'])->name('postEventDelete');
-    Route::get('/{id}/reserveer', 'EventController@showReserve')->name('getEventReserve');
-    Route::post('/{id}/reserveer', 'EventController@reserve')->name('postEventReserve');
+    Route::get('/evenement-aanmaken', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
+    Route::post('/evenement-aanmaken', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
+    Route::get('/{id}/evenement-details', 'EventController@show')->name('getEventDetails');
+    Route::get('/{id}/evenement-edit', 'EventController@edit')->middleware(['auth'])->name('getEventUpdate');
+    Route::post('/{id}/evenement-edit', 'EventController@update')->middleware(['auth'])->name('postEventUpdate');
+    Route::get('/{id}/evenement-delete', 'EventController@delete')->middleware(['auth'])->name('getEventDelete');
+    Route::post('/{id}/evenement-delete', 'EventController@destroy')->middleware(['auth'])->name('postEventDelete');
+    Route::get('/{id}/evenement-reserveer', 'EventController@showReserve')->name('getEventReserve');
+    Route::post('/{id}/evenement-reserveer', 'EventController@reserve')->name('postEventReserve');
     Route::resource('reservations', 'App\Http\Controllers\EventController');
 });
