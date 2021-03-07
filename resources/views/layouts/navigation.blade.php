@@ -18,7 +18,7 @@
                         </x-nav-link>
                     @endauth
                     <x-nav-link :href="route('getEventIndex')" :active="request()->routeIs('getEventIndex')">
-                        {{ __('Evenementen') }}
+                        {{ __('Evenementen en Films') }}
                     </x-nav-link>
                 </div>
             </div>

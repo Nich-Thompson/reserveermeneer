@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::prefix('evenementen')->group(function (){
+Route::prefix('evenementen-films')->group(function (){
     Route::get('/', 'EventController@index')->name('getEventIndex');
     Route::get('/evenement-aanmaken', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
     Route::post('/evenement-aanmaken', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
@@ -35,4 +35,13 @@ Route::prefix('evenementen')->group(function (){
     Route::get('/{id}/evenement-reserveer', 'EventController@showReserve')->name('getEventReserve');
     Route::post('/{id}/evenement-reserveer', 'EventController@reserve')->name('postEventReserve');
     Route::resource('reservations', 'App\Http\Controllers\EventController');
+    Route::get('/film-aanmaken', 'CinemaController@create')->middleware(['auth'])->name('getFilmCreate');
+    Route::post('/film-aanmaken', 'CinemaController@store')->middleware(['auth'])->name('postFilmCreate');
+    Route::get('/{id}/film-details', 'CinemaController@show')->name('getFilmDetails');
+    Route::get('/{id}/film-edit', 'CinemaController@edit')->middleware(['auth'])->name('getFilmUpdate');
+    Route::post('/{id}/film-edit', 'CinemaController@update')->middleware(['auth'])->name('postFilmUpdate');
+    Route::get('/{id}/film-delete', 'CinemaController@delete')->middleware(['auth'])->name('getFilmDelete');
+    Route::post('/{id}/film-delete', 'CinemaController@destroy')->middleware(['auth'])->name('postFilmDelete');
+    Route::get('/{id}/film-reserveer', 'CinemaController@showReserve')->name('getFilmReserve');
+    Route::post('/{id}/film-reserveer', 'CinemaController@reserve')->name('postFilmReserve');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Film;
 use App\Models\Reservation;
 use DateTime;
 use Illuminate\Http\Request;
@@ -13,8 +14,10 @@ class EventController extends Controller
     public function index()
     {
         $events =Event::all();
+        $films = Film::all();
         return view('event.index', [
-            'events' => $events
+            'events' => $events,
+            'films' => $films
         ]);
     }
 
