@@ -25,7 +25,7 @@
                             <div class="col-span-1">
                                 <label>Titel</label>
                                 <div class="form-group">
-                                    <input type="text" name="title" class="form-control w-full" value="{{ $event->title }}" required>
+                                    <input type="text" name="title" class="form-control w-full" value="{{ $event->title }}" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1 text-right">
@@ -37,19 +37,19 @@
                             <div class="col-span-2">
                                 <label>Beschrijving</label>
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving" value="{{ $event->description }}" required>
+                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving" value="{{ $event->description }}" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Max. aantal tickets</label>
                                 <div class="form-group">
-                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ $event->max_tickets }}" required>
+                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ $event->max_tickets }}" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1  ">
                                 <label>Prijs</label>
                                 <div class="form-group">
-                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}" required>
+                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1">

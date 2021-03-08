@@ -32,4 +32,21 @@ class StoreEventRequest extends FormRequest
             'end_date' => 'required',
         ];
     }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->start_date > $this->end_date) {
+                $validator->errors()->add('field', 'De einddatum moet na de startdatum vallen.');
+            }
+        });
+    }
+
+    public function messages()
+    {
+        return [
+            'price.gt' => 'De prijs moet positief zijn.',
+            'max_tickets.gt' => 'Het maximum aantal tickets moet positief zijn.'
+        ];
+    }
 }
