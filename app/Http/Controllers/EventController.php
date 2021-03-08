@@ -68,10 +68,6 @@ class EventController extends Controller
 
         if($request->start_date != null || $request->end_date != null)
         {
-            $request -> validate([
-                'start_date' => 'required',
-                'end_date' => 'required',
-            ]);
             $event->start_date = $request->input('start_date');
             $event->end_date = $request->input('end_date');
         }
