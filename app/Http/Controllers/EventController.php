@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReserveEventRequest;
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use App\Models\Film;
 use App\Models\Reservation;
@@ -35,15 +37,6 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
-        $request -> validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'max_tickets' => 'required|gt:1',
-            'start_date' => 'required',
-            'end_date' => 'required',
-        ]);
-
         Event::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
@@ -65,15 +58,8 @@ class EventController extends Controller
         ]);
     }
 
-    public function update($id, Request $request)
+    public function update($id, UpdateEventRequest $request)
     {
-        $request -> validate([
-            'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'max_tickets' => 'required|gt:0',
-        ]);
-
         $event = Event::find($id);
         $event->title = $request->input('title');
         $event->description = $request->input('description');
@@ -122,17 +108,9 @@ class EventController extends Controller
         ]);
     }
 
-    public function reserve(Request $request, $id)
+    public function reserve(ReserveEventRequest $request, $id)
     {
         $event =Event::find($id);
-
-        $request->validate([
-            'name' => 'required',
-            'file' => 'required|mimes:jpeg,png',
-            'email' => 'required',
-            'start_date' => 'required',
-            'days_count' => 'required',
-        ]);
 
         $startDateTime = new DateTime($request->start_date);
         $endDateTime = new DateTime($request->start_date);
@@ -165,11 +143,6 @@ class EventController extends Controller
             'end_date' => $endDateTime,
             'total_price' => $event->price*$days,
         ]);
-        /*$reservation = new Reservation([
-            "name" => $request->get('name'),
-            "img_path" => $request->file->hashName()
-        ]);
-        $reservation->save();*/
 
         return redirect()->route('getEventIndex');
     }
