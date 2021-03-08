@@ -106,17 +106,17 @@ class EventController extends Controller
 
     public function reserve(ReserveEventRequest $request, $id)
     {
-        $event =Event::find($id);
+        $event =Event::find($id); // Could also be $request->id
 
         $startDateTime = new DateTime($request->start_date);
         $endDateTime = new DateTime($request->start_date);
         switch ($request->days_count)
         {
-            case '1':
+            /*case '1':
                 $endDateTime->modify('+1 day');
-                break;
+                break;*/
             case '2':
-                $endDateTime->modify('+2 day');
+                $endDateTime->modify('+1 day');
                 break;
             case '3':
                 $endDateTime = new DateTime($event->end_date);
