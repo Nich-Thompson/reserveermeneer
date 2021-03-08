@@ -112,9 +112,6 @@ class EventController extends Controller
         $endDateTime = new DateTime($request->start_date);
         switch ($request->days_count)
         {
-            /*case '1':
-                $endDateTime->modify('+1 day');
-                break;*/
             case '2':
                 $endDateTime->modify('+1 day');
                 break;
@@ -137,7 +134,8 @@ class EventController extends Controller
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
             'end_date' => $endDateTime,
-            'total_price' => $event->price*$days,
+            'ticket_number',
+            'total_price' => $event->price*$days*$request->ticket_number,
         ]);
 
         return redirect()->route('getEventIndex');

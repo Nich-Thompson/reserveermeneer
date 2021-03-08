@@ -29,6 +29,7 @@ class ReserveEventRequest extends FormRequest
             'name' => 'required',
             'file' => 'required|mimes:jpeg,png',
             'email' => 'required',
+            'ticket_number' => 'required|gt:0',
             'start_date' => 'required',
             'days_count' => 'required',
         ];
@@ -38,6 +39,7 @@ class ReserveEventRequest extends FormRequest
     {
         return [
             'file.mimes' => 'Dit bestandstype wordt niet ondersteund.',
+            'ticket_number.gt' => 'Het aantal tickets moet positief zijn.'
         ];
     }
 
@@ -55,9 +57,6 @@ class ReserveEventRequest extends FormRequest
             $reservationEndDate = new DateTime($this->start_date);
             switch ($this->days_count)
             {
-                /*case '1':
-                    $reservationEndDate->modify('+1 day');
-                    break;*/
                 case '2':
                     $reservationEndDate->modify('+1 day');
                     break;
@@ -73,6 +72,11 @@ class ReserveEventRequest extends FormRequest
             }
             if ($reservationEndDate > $eventEndDate) {
                 $validator->errors()->add('field', 'Je reservering kan niet langer duren dan het evenement.');
+            }
+
+            if ($this->ticket_number > $event->max_tickets)
+            {
+                $validator->errors()->add('field', 'Je kunt niet meer tickets kopen dan het maximum.');
             }
         });
     }

@@ -14,6 +14,7 @@
                         <b>Van:</b> {{ $event->start_date }}<br>
                         <b>Tot:</b> {{ $event->end_date }}<br>
                         <b>Prijs:</b> {{ $event->price }} euro<br>
+                        <b>Max. aantal tickets:</b> {{ $event->max_tickets }}<br>
                     </div>
 
                     <div class=" text-left">

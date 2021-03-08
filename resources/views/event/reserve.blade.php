@@ -24,20 +24,24 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam" required>
+                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail" required>
+                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="date" class="form-control w-full text-gray-500" name="start_date" required>
+                                    <input type="date" class="form-control w-full text-gray-500" name="start_date">
                                 </div>
                             </div>
-                            <div class="col-span-1"></div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
+                                </div>
+                            </div>
                             <div class="col-span-1">
                                 <div class="form-group">
                                     {{--<div class="flex-row">--}}

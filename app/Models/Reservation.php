@@ -16,6 +16,7 @@ class Reservation extends Model
         "img_path",
         "start_date",
         "end_date",
+        "ticket_number",
         "total_price",
         "created_at",
         "updated_at"
