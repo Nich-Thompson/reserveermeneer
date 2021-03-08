@@ -37,9 +37,17 @@
                                     <input type="date" class="form-control w-full text-gray-500" name="start_date" required>
                                 </div>
                             </div>
+                            <div class="col-span-1"></div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="date" class="form-control w-full text-gray-500" name="end_date" required>
+                                    {{--<div class="flex-row">--}}
+                                    <input type="radio" class="form-control" name="days_count" value="1" checked>
+                                    <label>1 Dag</label>
+                                    <input type="radio" class="form-control" name="days_count" value="2">
+                                    <label>2 Dagen</label>
+                                    <input type="radio" class="form-control" name="days_count" value="3">
+                                    <label>Alle Dagen</label>
+                                    {{--</div>--}}
                                 </div>
                             </div>
                             <div class="col-span-2">

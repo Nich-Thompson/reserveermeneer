@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEventRequest;
 use App\Models\Event;
 use App\Models\Film;
 use App\Models\Reservation;
@@ -32,7 +33,7 @@ class EventController extends Controller
         return view('event.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
         $request -> validate([
             'title' => 'required',
@@ -130,11 +131,24 @@ class EventController extends Controller
             'file' => 'required|mimes:jpeg,png',
             'email' => 'required',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'days_count' => 'required',
         ]);
 
         $startDateTime = new DateTime($request->start_date);
-        $endDateTime = new DateTime($request->end_date);
+        $endDateTime = new DateTime($request->start_date);
+        switch ($request->days_count)
+        {
+            case '1':
+                $endDateTime->modify('+1 day');
+                break;
+            case '2':
+                $endDateTime->modify('+2 day');
+                break;
+            case '3':
+                $endDateTime = new DateTime($event->end_date);
+            default:
+                break;
+        }
         $interval = $startDateTime->diff($endDateTime);
         $days = 1 + $interval->format('%a');
 
@@ -148,7 +162,7 @@ class EventController extends Controller
             'email' => $request->input('email'),
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
-            'end_date' => $request->input('end_date'),
+            'end_date' => $endDateTime,
             'total_price' => $event->price*$days,
         ]);
         /*$reservation = new Reservation([
