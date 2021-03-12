@@ -24,12 +24,12 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
+                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
+                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail">
                                 </div>
                             </div>
                             <div class="col-span-1">
@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" required oninvalid="this.setCustomValidity('Dit veld mag niet leeg zijn.')" oninput="this.setCustomValidity('')">
+                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets">
                                 </div>
                             </div>
                             <div class="col-span-1">
