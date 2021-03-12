@@ -34,13 +34,20 @@
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="date" class="form-control w-full text-gray-500" name="start_date" value="{{ old('start_date') }}">
+                                    <input type="date" class="form-control w-full text-gray-500" name="start_date"
+                                        @if(old('start_date') != null)
+                                            value="{{ old('start_date') }}"
+                                            @else
+                                            value="{{ date("Y-m-d", strtotime($event->start_date)) }}"
+                                            @endif>
                                 </div>
+                                <label>Dit evenement loopt van {{ date("Y-m-d", strtotime($event->start_date)) }} tot {{ date("Y-m-d", strtotime($event->end_date)) }}</label>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
                                     <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" value="{{ old('ticket_number') }}">
                                 </div>
+                                <label>Het maximaal aantal tickets is {{ $event->max_tickets }}.</label>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
