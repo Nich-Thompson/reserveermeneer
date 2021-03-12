@@ -25,7 +25,12 @@
                             <div class="col-span-1">
                                 <label>Titel</label>
                                 <div class="form-group">
-                                    <input type="text" name="title" class="form-control w-full" value="{{ $event->title }}">
+                                    <input type="text" name="title" class="form-control w-full"
+                                           @if(old('title') != null)
+                                           value="{{ old('title') }}"
+                                           @else
+                                           value="{{ $event->title }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-1 text-right">
@@ -37,31 +42,56 @@
                             <div class="col-span-2">
                                 <label>Beschrijving</label>
                                 <div class="form-group">
-                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving" value="{{ $event->description }}">
+                                    <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving"
+                                            @if(old('description') != null)
+                                            value="{{ old('description') }}"
+                                            @else
+                                            value="{{ $event->description }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Max. aantal tickets</label>
                                 <div class="form-group">
-                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ $event->max_tickets }}">
+                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets"
+                                           @if(old('max_tickets') != null)
+                                           value="{{ old('max_tickets') }}"
+                                           @else
+                                           value="{{ $event->max_tickets }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-1  ">
                                 <label>Prijs</label>
                                 <div class="form-group">
-                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" value="{{ $event->price }}">
+                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs"
+                                           @if(old('price') != null)
+                                           value="{{ old('price') }}"
+                                           @else
+                                           value="{{ $event->price }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Begindatum</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500" >
+                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500"
+                                           @if(old('start_date') != null)
+                                           value="{{ old('start_date') }}"
+                                           @else
+                                           value="{{ date("Y-m-d\TH:i", strtotime($event->start_date)) }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Einddatum</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500" >
+                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500"
+                                           @if(old('end_date') != null)
+                                           value="{{ old('end_date') }}"
+                                           @else
+                                           value="{{ date("Y-m-d\TH:i", strtotime($event->end_date)) }}"
+                                        @endif>
                                 </div>
                             </div>
                             <div class="col-span-2">

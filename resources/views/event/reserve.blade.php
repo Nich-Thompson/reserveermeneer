@@ -35,11 +35,11 @@
                             <div class="col-span-1">
                                 <div class="form-group">
                                     <input type="date" class="form-control w-full text-gray-500" name="start_date"
-                                        @if(old('start_date') != null)
+                                            @if(old('start_date') != null)
                                             value="{{ old('start_date') }}"
                                             @else
                                             value="{{ date("Y-m-d", strtotime($event->start_date)) }}"
-                                            @endif>
+                                        @endif>
                                 </div>
                                 <label>Dit evenement loopt van {{ date("Y-m-d", strtotime($event->start_date)) }} tot {{ date("Y-m-d", strtotime($event->end_date)) }}</label>
                             </div>
