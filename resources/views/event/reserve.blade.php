@@ -24,32 +24,32 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam">
+                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam" value="{{ old('name') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail">
+                                    <input type="text" class="form-control w-full" name="email" placeholder="E-mail" value="{{ old('email') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="date" class="form-control w-full text-gray-500" name="start_date">
+                                    <input type="date" class="form-control w-full text-gray-500" name="start_date" value="{{ old('start_date') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets">
+                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" value="{{ old('ticket_number') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
                                     {{--<div class="flex-row">--}}
-                                    <input type="radio" class="form-control" name="days_count" value="1" checked>
+                                    <input type="radio" class="form-control" name="days_count" value="1" {{ (old('days_count') == '1') ? 'checked' : ''}} checked>
                                     <label>1 Dag</label>
-                                    <input type="radio" class="form-control" name="days_count" value="2">
+                                    <input type="radio" class="form-control" name="days_count" value="2" {{ (old('days_count') == '2') ? 'checked' : ''}}>
                                     <label>2 Dagen</label>
-                                    <input type="radio" class="form-control" name="days_count" value="3">
+                                    <input type="radio" class="form-control" name="days_count" value="3" {{ (old('days_count') == '3') ? 'checked' : ''}}>
                                     <label>Alle Dagen</label>
                                     {{--</div>--}}
                                 </div>
