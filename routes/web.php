@@ -35,8 +35,9 @@ Route::prefix('evenementen-films')->group(function (){
     Route::get('/{id}/evenement-reserveer', 'EventController@showReserve')->name('getEventReserve');
     Route::post('/{id}/evenement-reserveer', 'EventController@reserve')->name('postEventReserve');
     Route::get('/{id}/event-reserve', 'EventController@showReserveEnglish')->name('getEventReserveEnglish');
-        Route::post('/{id}/event-reserve', 'EventController@reserveEnglish')->name('postEventReserveEnglish');
+    Route::post('/{id}/event-reserve', 'EventController@reserveEnglish')->name('postEventReserveEnglish');
     Route::resource('reservations', 'App\Http\Controllers\EventController');
+
     Route::get('/film-aanmaken', 'CinemaController@create')->middleware(['auth'])->name('getFilmCreate');
     Route::post('/film-aanmaken', 'CinemaController@store')->middleware(['auth'])->name('postFilmCreate');
     Route::get('/{id}/film-details', 'CinemaController@show')->name('getFilmDetails');
@@ -46,4 +47,8 @@ Route::prefix('evenementen-films')->group(function (){
     Route::post('/{id}/film-delete', 'CinemaController@destroy')->middleware(['auth'])->name('postFilmDelete');
     Route::get('/{id}/film-reserveer', 'CinemaController@showReserve')->name('getFilmReserve');
     Route::post('/{id}/film-reserveer', 'CinemaController@reserve')->name('postFilmReserve');
+});
+
+Route::prefix('evenementreservaties')->group(function (){
+    Route::get('/', 'ReservationController@index')->middleware(['auth'])->name('getReservationIndex');
 });

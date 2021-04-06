@@ -20,6 +20,11 @@
                     <x-nav-link :href="route('getEventIndex')" :active="request()->routeIs('getEventIndex')">
                         {{ __('Evenementen en Films') }}
                     </x-nav-link>
+                    @auth
+                        <x-nav-link :href="route('getReservationIndex')" :active="request()->routeIs('getReservationIndex')">
+                            {{ __('Evenementreservaties') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
 

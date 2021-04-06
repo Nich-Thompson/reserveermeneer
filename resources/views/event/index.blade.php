@@ -20,7 +20,7 @@
                         <div class="d-flex flex-column w-50">
                             <b>{{ $event->title }}</b><br>
                             {{ $event->description }}<br>
-                            <b>Van: </b>{{ date("d-m h:i", strtotime($event->start_date)) }} <b>Tot: </b>{{ date("d-m h:i", strtotime($event->end_date)) }}
+                            <b>Van: </b>{{ date("d-m H:i", strtotime($event->start_date)) }} <b>Tot: </b>{{ date("d-m H:i", strtotime($event->end_date)) }}
                         </div>
                         <div class="d-flex flex-column justify-content-end w-50 text-right pb-2">
                             <a href="{{ route('getEventDetails', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">+Info</a>
@@ -32,7 +32,7 @@
                         <div class="d-flex flex-column w-50">
                             <b>{{ $film->name }}</b><br>
                             {{ $film->description }}<br>
-                            <b>Van: </b>{{ date("d-m h:i", strtotime($film->start_time)) }} <b>Tot: </b>{{ date("d-m h:i", strtotime($film->end_time)) }}
+                            <b>Van: </b>{{ date("d-m H:i", strtotime($film->start_time)) }} <b>Tot: </b>{{ date("d-m H:i", strtotime($film->end_time)) }}
                         </div>
                         <div class="d-flex flex-column justify-content-end w-50 text-right pb-2">
                             <a href="{{ route('getFilmDetails', $film->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">+Info</a>
