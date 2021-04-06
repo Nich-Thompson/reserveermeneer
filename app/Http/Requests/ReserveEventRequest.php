@@ -27,9 +27,9 @@ class ReserveEventRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'file' => 'required|mimes:jpeg,png',
             'email' => 'required',
             'ticket_number' => 'required|gt:0',
+            'file' => 'required|mimes:jpeg,png',
             'start_date' => 'required',
             'days_count' => 'required',
         ];
@@ -38,6 +38,10 @@ class ReserveEventRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'Naam mag niet leeg zijn.',
+            'file.required' => 'Je moet een foto uploaden.',
+            'email.required' => 'E-mail mag niet leeg zijn.',
+            'ticket_number.required' => 'Ticket aantal mag niet leeg zijn.',
             'file.mimes' => 'Dit bestandstype wordt niet ondersteund.',
             'ticket_number.gt' => 'Het aantal tickets moet positief zijn.'
         ];

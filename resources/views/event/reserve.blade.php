@@ -63,7 +63,8 @@
                             </div>
                             <div class="col-span-2">
                                 <div class="form-group">
-                                    <input type="file" name="file" required>
+                                    <label for="file" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 border border-black rounded shadow">Upload foto:</label>
+                                    <input type="file" id="file" name="file" hidden>
                                 </div>
                             </div>
 
