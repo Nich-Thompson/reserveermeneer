@@ -134,7 +134,7 @@ class EventController extends Controller
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
             'end_date' => $endDateTime,
-            'ticket_number',
+            'ticket_number' => $request->input('ticket_number'),
             'total_price' => $event->price*$days*$request->ticket_number,
         ]);
 
