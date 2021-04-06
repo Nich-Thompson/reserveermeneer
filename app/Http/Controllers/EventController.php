@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReserveEventRequest;
+use App\Http\Requests\ReserveEventRequestEnglish;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
@@ -105,6 +106,52 @@ class EventController extends Controller
     }
 
     public function reserve(ReserveEventRequest $request, $id)
+    {
+        $event =Event::find($id); // Could also be $request->id
+
+        $startDateTime = new DateTime($request->start_date);
+        $endDateTime = new DateTime($request->start_date);
+        switch ($request->days_count)
+        {
+            case '2':
+                $endDateTime->modify('+1 day');
+                break;
+            case '3':
+                $endDateTime = new DateTime($event->end_date);
+            default:
+                break;
+        }
+        $interval = $startDateTime->diff($endDateTime);
+        $days = 1 + $interval->format('%a');
+
+        // Save the file locally in storage/public/reservation
+        $request->file->store('reservation', 'public');
+
+        // Save hash to db
+        EventReservation::create([
+            'event_id' => $event->id,
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'img_path' => $request->file->hashName(),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $endDateTime,
+            'ticket_number' => $request->input('ticket_number'),
+            'total_price' => $event->price*$days*$request->ticket_number,
+        ]);
+
+        return redirect()->route('getEventIndex');
+    }
+
+    public function showReserveEnglish($id)
+    {
+        $event =Event::find($id);
+        return view('event.reserve-english', [
+            'event' => $event,
+            'id' => $id
+        ]);
+    }
+
+    public function reserveEnglish(ReserveEventRequestEnglish $request, $id)
     {
         $event =Event::find($id); // Could also be $request->id
 

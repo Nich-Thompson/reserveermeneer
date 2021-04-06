@@ -30,8 +30,11 @@
                         </div>
                     @else
                         <div class=" text-right">
-                            <a href="{{ route('getEventReserve', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-                                Reserveren
+                            <a href="{{ route('getEventReserve', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow m-3">
+                                Reserveren (NL)
+                            </a>
+                            <a href="{{ route('getEventReserveEnglish', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+                                Reserve (EN)
                             </a>
                         </div>
                     @endauth
