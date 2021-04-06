@@ -7,7 +7,7 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
 use App\Models\Film;
-use App\Models\Reservation;
+use App\Models\EventReservation;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -127,7 +127,7 @@ class EventController extends Controller
         $request->file->store('reservation', 'public');
 
         // Save hash to db
-        Reservation::create([
+        EventReservation::create([
             'event_id' => $event->id,
             'name' => $request->input('name'),
             'email' => $request->input('email'),
