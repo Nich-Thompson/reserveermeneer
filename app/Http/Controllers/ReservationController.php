@@ -32,19 +32,19 @@ class ReservationController extends Controller
         }
         fclose($df);
 
-//        return ob_get_clean();
         return Response::download('reservations.csv');
+    }
 
-//        $data = EventReservation::all()->toArray();
-//        $file = fopen('reservations.csv', 'w');
-//
-//        fputcsv($file, array('id', 'event_id', 'name', 'email', 'img_path', 'start_date', 'end_date', 'ticket_number', 'total_price', 'created_at', 'updated_at'));
-//
-//        foreach ($data as $row) {
-//            fputcsv($file, $row);
-//        }
-//        fclose($file);
-//
-//        return Response::download('reservations.csv');
+    function exportJson()
+    {
+        $array = EventReservation::all()->toArray();
+
+        if (count($array) == 0) {
+            return null;
+        }
+        $json_data = json_encode($array);
+        file_put_contents('reservations.json', $json_data);
+
+        return Response::download('reservations.json');
     }
 }
