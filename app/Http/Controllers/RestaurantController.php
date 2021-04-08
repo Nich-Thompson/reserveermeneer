@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReserveRestaurantRequest;
 use App\Models\Restaurant;
+use App\Models\RestaurantReservation;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -39,7 +40,27 @@ class RestaurantController extends Controller
 
     public function reserve(ReserveRestaurantRequest $request, $id)
     {
-        dd("nog maken");
+        $count = RestaurantReservation::where("date", "=", $request->date)->where("time", "=", $request->time)->count();
+        $add_to_waiting_list = false;
+
+        if ($count >= 10) {
+            $add_to_waiting_list = true;
+        }
+
+        RestaurantReservation::create([
+            "restaurant_id" => $id,
+            "date" => $request->date,
+            "time" => $request->time,
+            "firstname" => $request->firstname,
+            "lastname" => $request->lastname,
+            "email" => $request->email,
+            "address" => $request->address,
+            "postal_code" => $request->postal_code,
+            "city" => $request->city,
+            "waiting_list" => $add_to_waiting_list,
+        ]);
+
+        return redirect('/restaurants')->with('status', "Bedankt voor je reservering op " . $request->date . " om " . $request->time . "!");
     }
 
     public function create()
