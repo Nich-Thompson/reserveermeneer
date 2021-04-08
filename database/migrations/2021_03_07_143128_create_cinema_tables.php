@@ -77,6 +77,9 @@ class CreateCinemaTables extends Migration
                 ->onDelete('cascade');
 
             $table->string('name');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('city');
             $table->timestamps();
         });
     }
