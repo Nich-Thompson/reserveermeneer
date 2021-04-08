@@ -28,7 +28,7 @@ class EventController extends Controller
 
     public function show($id)
     {
-        $event =Event::find($id);
+        $event = Event::find($id);
 
         if ($event == null) {
             return redirect()->route('getEventIndex');

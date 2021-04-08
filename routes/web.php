@@ -38,15 +38,15 @@ Route::prefix('evenementen-films')->group(function (){
     Route::post('/{id}/event-reserve', 'EventController@reserveEnglish')->name('postEventReserveEnglish');
     Route::resource('reservations', 'App\Http\Controllers\EventController');
 
-    Route::get('/film-aanmaken', 'CinemaController@create')->middleware(['auth'])->name('getFilmCreate');
-    Route::post('/film-aanmaken', 'CinemaController@store')->middleware(['auth'])->name('postFilmCreate');
-    Route::get('/{id}/film-details', 'CinemaController@show')->name('getFilmDetails');
-    Route::get('/{id}/film-edit', 'CinemaController@edit')->middleware(['auth'])->name('getFilmUpdate');
-    Route::post('/{id}/film-edit', 'CinemaController@update')->middleware(['auth'])->name('postFilmUpdate');
-    Route::get('/{id}/film-delete', 'CinemaController@delete')->middleware(['auth'])->name('getFilmDelete');
-    Route::post('/{id}/film-delete', 'CinemaController@destroy')->middleware(['auth'])->name('postFilmDelete');
-    Route::get('/{id}/film-reserveer', 'CinemaController@showReserve')->name('getFilmReserve');
-    Route::post('/{id}/film-reserveer', 'CinemaController@reserve')->name('postFilmReserve');
+    Route::get('/film-aanmaken', 'FilmController@create')->middleware(['auth'])->name('getFilmCreate');
+    Route::post('/film-aanmaken', 'FilmController@store')->middleware(['auth'])->name('postFilmCreate');
+    Route::get('/{id}/film-details', 'FilmController@show')->name('getFilmDetails');
+    Route::get('/{id}/film-edit', 'FilmController@edit')->middleware(['auth'])->name('getFilmUpdate');
+    Route::post('/{id}/film-edit', 'FilmController@update')->middleware(['auth'])->name('postFilmUpdate');
+    Route::get('/{id}/film-delete', 'FilmController@delete')->middleware(['auth'])->name('getFilmDelete');
+    Route::post('/{id}/film-delete', 'FilmController@destroy')->middleware(['auth'])->name('postFilmDelete');
+    Route::get('/{id}/film-reserveer', 'FilmController@showReserve')->name('getFilmReserve');
+    Route::post('/{id}/film-reserveer', 'FilmController@reserve')->name('postFilmReserve');
 });
 
 Route::prefix('evenementreservaties')->group(function (){
