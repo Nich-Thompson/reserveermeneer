@@ -13,6 +13,7 @@ class FilmReservation extends Model
         "film_id",
         "seat_id",
         "name",
+        "email",
         "address",
         "postal_code",
         "city",

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReserveFilmRequest;
 use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Models\Cinema;
 use App\Models\Film;
 use App\Models\Hall;
+use App\Models\Seat;
 use Illuminate\Http\Request;
 
 class FilmController extends Controller
@@ -100,6 +102,7 @@ class FilmController extends Controller
     public function showReserve($id)
     {
         $film = Film::find($id);
+        $seats = Seat::where('hall_id', $film->hall_id)->get();
 
         if ($film == null) {
             return redirect()->route('getEventIndex');
@@ -107,11 +110,12 @@ class FilmController extends Controller
 
         return view('film.reserve', [
             'film' => $film,
+            'seats' => $seats,
             'id' => $id
         ]);
     }
 
-    public function reserve(Request $request, $id)
+    public function reserve(ReserveFilmRequest $request, $id)
     {
 //        $event =Event::find($id); // Could also be $request->id
 //
