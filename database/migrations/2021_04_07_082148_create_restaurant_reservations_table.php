@@ -14,6 +14,12 @@ class CreateRestaurantReservationsTable extends Migration
             $table->foreign("restaurant_id")->references("id")->on("restaurants")->onDelete('cascade');
             $table->date("date");
             $table->time("time");
+            $table->string("firstname");
+            $table->string("lastname");
+            $table->string("email");
+            $table->string("address");
+            $table->string("postal_code");
+            $table->string("city");
             $table->boolean("waiting_list");
             $table->timestamps();
         });

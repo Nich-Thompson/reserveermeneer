@@ -48,4 +48,6 @@ Route::prefix('evenementen-films')->group(function () {
 
 Route::prefix('restaurants')->group(function () {
     Route::get('/', 'RestaurantController@index')->name('getRestaurantIndex');
+    Route::get('/{id}/reserveren', 'RestaurantController@showReserve')->name('getRestaurantReserve');
+    Route::post('/{id}/reserveren', 'RestaurantController@reserve')->name('postRestaurantReserve');
 });

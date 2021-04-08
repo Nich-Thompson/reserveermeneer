@@ -13,6 +13,12 @@ class RestaurantReservation extends Model
         "restaurant_id",
         "date",
         "time",
+        "firstname",
+        "lastname",
+        "email",
+        "address",
+        "postal_code",
+        "city",
         "waiting_list",
     ];
 }

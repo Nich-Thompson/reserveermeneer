@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReserveRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -22,18 +23,30 @@ class RestaurantController extends Controller
         return view('restaurants.index', ['restaurants' => $restaurants, "categories" => $categories]);
     }
 
+    public function showReserve($id)
+    {
+        $restaurant = Restaurant::find($id);
+
+        if ($restaurant == null) {
+            return redirect("/restaurants");
+        }
+
+        return view('restaurants.reserve', [
+            'restaurant' => $restaurant,
+            'id' => $id
+        ]);
+    }
+
+    public function reserve(ReserveRestaurantRequest $request, $id)
+    {
+        dd("nog maken");
+    }
 
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
