@@ -42,7 +42,6 @@ class CreateCinemaTables extends Migration
 
             $table->integer('x');
             $table->integer('y');
-            $table->tinyInteger('occupied');
             $table->timestamps();
         });
 
@@ -59,6 +58,24 @@ class CreateCinemaTables extends Migration
             $table->string('description');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
+            $table->timestamps();
+        });
+
+        Schema::create('film_seats', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('film_id');
+            $table->unsignedBigInteger('seat_id');
+
+            $table->foreign('film_id')
+                ->references('id')
+                ->on('films')
+                ->onDelete('cascade');
+            $table->foreign('seat_id')
+                ->references('id')
+                ->on('seats')
+                ->onDelete('cascade');
+
+            $table->tinyInteger('occupied');
             $table->timestamps();
         });
 

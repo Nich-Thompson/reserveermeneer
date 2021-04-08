@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Cinema;
 use App\Models\Film;
+use App\Models\FilmSeat;
 use App\Models\Hall;
 use App\Models\Seat;
 use Illuminate\Database\Seeder;
@@ -54,7 +55,6 @@ class CinemaSeeder extends Seeder
                         'hall_id' => ($i + 1),
                         'x' => $x,
                         'y' => $y,
-                        'occupied' => 0
                     ]);
                 }
             }
@@ -144,5 +144,20 @@ class CinemaSeeder extends Seeder
             'start_time' => '2021-06-02 20:00:00',
             'end_time' => '2021-06-02 21:40:00'
         ]);
+
+        // for each film, create seats
+        $films = Film::all();
+        foreach ($films as $film) {
+//            $hall = Hall::query()->where('id', equalTo($film->hall_id))->first();
+//            $seats = Seat::query()->where('hall_id', equalTo($film->hall_id))->get();
+            $seats = Seat::where('hall_id', $film->hall_id)->get();
+            foreach ($seats as $seat) {
+                FilmSeat::create([
+                    'film_id' => $film->id,
+                    'seat_id' => $seat->id,
+                    'occupied' => '0'
+                ]);
+            }
+        }
     }
 }
