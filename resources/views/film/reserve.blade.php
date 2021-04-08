@@ -62,11 +62,11 @@
                                                     $seat = $seats->where('x', $i)->where('y', $j)->first()
                                                 }}</span>
                                             @if($seat->occupied == false)
-                                                <div class="col-span-1 outline-black hover:bg-gray-200 cursor-pointer " onclick="select( {{ $seat->id }} )">
+                                                <div class="col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer" id="{{ $seat->id }}" onclick="select( {{ $seat->id }} )">
                                                     Beschikbaar
                                                 </div>
                                             @else
-                                                <div class="col-span-1 outline-black">
+                                                <div class="col-span-1 outline-black bg-red-300" id="{{ $seat->id }}">
                                                     Bezet
                                                 </div>
                                             @endif
@@ -74,6 +74,8 @@
                                     @endfor
                                 </div>
                             </div>
+
+                            {{--hidden seat input--}}
                             <input type="number" id="seatId" name="seat_id" value="-1" hidden>
 
                             <div class="col-span-1 text-left">
@@ -98,5 +100,17 @@
     function select(id) {
         let select = document.getElementById('seatId')
         select.setAttribute('value', id)
+
+        let seatElements = document.getElementsByClassName('col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer selected')
+        for (let i = 0; i < seatElements.length; i++) {
+            if (seatElements[i].classList.contains('selected')) {
+                seatElements[i].setAttribute('style', '')
+                seatElements[i].classList.remove('selected')
+            }
+        }
+
+        let selectedElement = document.getElementById(id)
+        selectedElement.classList.add('selected')
+        selectedElement.setAttribute('style', 'background: bisque')
     }
 </script>

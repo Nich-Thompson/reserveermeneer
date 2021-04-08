@@ -7,6 +7,7 @@ use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Models\Cinema;
 use App\Models\Film;
+use App\Models\FilmReservation;
 use App\Models\FilmSeat;
 use App\Models\Hall;
 use App\Models\Seat;
@@ -133,40 +134,40 @@ class FilmController extends Controller
 
     public function reserve(ReserveFilmRequest $request, $id)
     {
-//        $event =Event::find($id); // Could also be $request->id
-//
-//        $startDateTime = new DateTime($request->start_date);
-//        $endDateTime = new DateTime($request->start_date);
-//        switch ($request->days_count)
-//        {
-//            case '2':
-//                $endDateTime->modify('+1 day');
-//                break;
-//            case '3':
-//                $endDateTime = new DateTime($event->end_date);
-//            default:
-//                break;
+        FilmReservation::create([
+            'film_id' => $id,
+            'seat_id' => $request->input('seat_id'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'postal_code' => $request->input('postal_code'),
+            'city' => $request->input('city'),
+        ]);
+
+        // occupy the selected seat
+        $filmSeat = FilmSeat::find($request->input('seat_id'));
+        $filmSeat->occupied = 1;
+        $filmSeat->save();
+        // occupy the seat left to the selected one
+        $x = $filmSeat->x;
+        $y = $filmSeat->y;
+        $leftSeat = FilmSeat::query()->where([
+            ['x', '=', $x - 1],
+            ['y', '=', $y]
+        ])->first();
+//        if ($leftSeat) {
+            $leftSeat->occupied = 1;
+            $leftSeat->save();
 //        }
-//        $interval = $startDateTime->diff($endDateTime);
-//        $days = 1 + $interval->format('%a');
-//
-//        // Save the file locally in storage/public/reservation
-//        $request->file->store('reservation', 'public');
-//
-//        // Save hash to db
-//        EventReservation::create([
-//            'event_id' => $event->id,
-//            'name' => $request->input('name'),
-//            'email' => $request->input('email'),
-//            'address' => $request->input('address'),
-//            'postal_code' => $request->input('postal_code'),
-//            'city' => $request->input('city'),
-//            'img_path' => $request->file->hashName(),
-//            'start_date' => $request->input('start_date'),
-//            'end_date' => $endDateTime,
-//            'ticket_number' => $request->input('ticket_number'),
-//            'total_price' => $event->price*$days*$request->ticket_number,
-//        ]);
+        // occupy the right seat
+        $rightSeat = FilmSeat::query()->where([
+            ['x', '=', $x + 1],
+            ['y', '=', $y]
+        ])->first();
+//        if ($rightSeat) {
+            $rightSeat->occupied = 1;
+            $rightSeat->save();
+//        }
 
         return redirect()->route('getEventIndex');
     }
