@@ -21,19 +21,19 @@
                             Terug
                         </a>
                     </div>
-{{--                    @auth--}}
-{{--                        <div class=" text-right">--}}
-{{--                            <a href="{{ route('getFilmUpdate', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">--}}
-{{--                                Bewerken--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    @else--}}
-{{--                        <div class=" text-right">--}}
-{{--                            <a href="{{ route('getFilmReserve', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow m-3">--}}
-{{--                                Reserveren--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    @endauth--}}
+                    @auth
+                        <div class=" text-right">
+                            <a href="{{ route('getFilmUpdate', $film->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+                                Bewerken
+                            </a>
+                        </div>
+                    @else
+                        <div class=" text-right">
+                            <a href="{{ route('getFilmReserve', $film->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow m-3">
+                                Reserveren
+                            </a>
+                        </div>
+                    @endauth
                 </div>
             </div>
         </div>
