@@ -11,6 +11,7 @@ use App\Models\Film;
 use App\Models\EventReservation;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
@@ -132,6 +133,9 @@ class EventController extends Controller
             'event_id' => $event->id,
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'postal_code' => $request->input('postal_code'),
+            'city' => $request->input('city'),
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
             'end_date' => $endDateTime,
@@ -172,12 +176,16 @@ class EventController extends Controller
 
         // Save the file locally in storage/public/reservation
         $request->file->store('reservation', 'public');
+//        Log::info($request->input('address'));
 
         // Save hash to db
         EventReservation::create([
             'event_id' => $event->id,
             'name' => $request->input('name'),
             'email' => $request->input('email'),
+            'address' => $request->input('address'),
+            'postal_code' => $request->input('postal_code'),
+            'city' => $request->input('city'),
             'img_path' => $request->file->hashName(),
             'start_date' => $request->input('start_date'),
             'end_date' => $endDateTime,

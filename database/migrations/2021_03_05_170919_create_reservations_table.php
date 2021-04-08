@@ -24,6 +24,9 @@ class CreateReservationsTable extends Migration
 
             $table->string('name');
             $table->string('email');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('city');
             $table->string('img_path');
             $table->dateTime('start_date');
             $table->dateTime('end_date');

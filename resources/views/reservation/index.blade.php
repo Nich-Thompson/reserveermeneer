@@ -17,8 +17,8 @@
                 @foreach($reservations as $reservation)
                     <div class="p-6 bg-white border-b border-gray-200 flex-row">
                         <div class="d-flex flex-column w-50">
-                            <b>Naam: </b>{{ $reservation->name }}<br>
-                            <b>E-mailadres: </b>{{ $reservation->email }}<br>
+                            <b>Naam: </b>{{ $reservation->name }} <b>E-mailadres: </b>{{ $reservation->email }}<br>
+                            <b>Adres: </b> {{ $reservation->address }} <b>Stad: </b> {{ $reservation->city }} <b>Postcode: </b> {{ $reservation->postal_code }}<br>
                             <b>Tickets: </b>{{ $reservation->ticket_number }} <b>Totaalprijs: </b> {{ $reservation->total_price }} euro<br>
                             <b>Van: </b>{{ date("d-m", strtotime($reservation->start_date)) }} <b>Tot: </b>{{ date("d-m", strtotime($reservation->end_date)) }}
                         </div>

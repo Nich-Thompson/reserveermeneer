@@ -34,6 +34,24 @@
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
+                                    <input type="text" class="form-control w-full" name="address" placeholder="Adres" value="{{ old('address') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                            {{--empty--}}
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control w-full" name="postal_code" placeholder="Postcode" value="{{ old('postal_code') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <input type="text" class="form-control w-full" name="city" placeholder="Stad" value="{{ old('city') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
                                     <input type="date" class="form-control w-full text-gray-500" name="start_date"
                                             @if(old('start_date') != null)
                                             value="{{ old('start_date') }}"
