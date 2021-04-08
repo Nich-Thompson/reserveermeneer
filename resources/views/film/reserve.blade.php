@@ -51,27 +51,10 @@
                                 </div>
                             </div>
 
+                            <div class="col-span-2 m-auto">
+                                <b>Kies een stoel: </b>
+                            </div>
                             <div class="col-span-2">
-{{--                                <script>--}}
-{{--                                    let seats = JSON.parse("{{ json_encode($seats) }}")--}}
-{{--                                    console.log(seats)--}}
-{{--                                </script>--}}
-{{--                                @foreach($seats as $seat)--}}
-{{--                                    x: {{ $seat->x }} --}}
-{{--                                    y: {{ $seat->y }}--}}
-{{--                                    id: {{ $seat->id }}<br>--}}
-{{--                                @endforeach--}}
-
-{{--                                <div class="grid grid-cols-3 gap-4">--}}
-{{--                                    <div class="col-span-1">--}}
-{{--                                        --}}{{--empty--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-span-1">--}}
-{{--                                        <div class="grid grid-cols-{{ $maxX + 1 }} gap-4">--}}
-{{--                                            x--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                                 <div class="grid grid-cols-{{ $maxX + 1 }} gap-4 max-w-screen-md align-middle m-auto">
                                     @for($i = 0; $i < $maxX + 1; $i++)
                                         @for($j = 0; $j < $maxY + 1; $j++)

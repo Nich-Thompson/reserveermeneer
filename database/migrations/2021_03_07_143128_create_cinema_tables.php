@@ -92,7 +92,7 @@ class CreateCinemaTables extends Migration
                 ->onDelete('cascade');
             $table->foreign('seat_id')
                 ->references('id')
-                ->on('seats')
+                ->on('film_seats')
                 ->onDelete('cascade');
 
             $table->string('name');
