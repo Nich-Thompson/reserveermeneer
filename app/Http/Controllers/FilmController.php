@@ -7,6 +7,7 @@ use App\Http\Requests\StoreFilmRequest;
 use App\Http\Requests\UpdateFilmRequest;
 use App\Models\Cinema;
 use App\Models\Film;
+use App\Models\FilmSeat;
 use App\Models\Hall;
 use App\Models\Seat;
 use Illuminate\Http\Request;
@@ -33,13 +34,24 @@ class FilmController extends Controller
 
     public function store(StoreFilmRequest $request)
     {
-        Film::create([
+        $film = Film::create([
             'hall_id' => $request->input('hall_id'),
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'start_time' => $request->input('start_time'),
             'end_time' => $request->input('end_time'),
         ]);
+
+        $seats = Seat::where('hall_id', $film->hall_id)->get();
+        foreach ($seats as $seat) {
+            FilmSeat::create([
+                'film_id' => $film->id,
+                'seat_id' => $seat->id,
+                'x' => $seat->x,
+                'y' => $seat->y,
+                'occupied' => '0'
+            ]);
+        }
 
         return redirect()->route('getEventIndex');
     }
@@ -102,7 +114,7 @@ class FilmController extends Controller
     public function showReserve($id)
     {
         $film = Film::find($id);
-        $seats = Seat::where('hall_id', $film->hall_id)->get();
+        $seats = FilmSeat::where('film_id', $film->id)->get();
 
         if ($film == null) {
             return redirect()->route('getEventIndex');

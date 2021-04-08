@@ -155,6 +155,8 @@ class CinemaSeeder extends Seeder
                 FilmSeat::create([
                     'film_id' => $film->id,
                     'seat_id' => $seat->id,
+                    'x' => $seat->x,
+                    'y' => $seat->y,
                     'occupied' => '0'
                 ]);
             }

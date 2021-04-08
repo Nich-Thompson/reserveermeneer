@@ -75,6 +75,8 @@ class CreateCinemaTables extends Migration
                 ->on('seats')
                 ->onDelete('cascade');
 
+            $table->integer('x');
+            $table->integer('y');
             $table->tinyInteger('occupied');
             $table->timestamps();
         });
