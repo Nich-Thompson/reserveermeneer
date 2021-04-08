@@ -7,6 +7,7 @@
             @auth
                 <div class="text-right">
                     <a href="{{ route('getEventCreate') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">+Evenement aanmaken</a>
+                    <a href="{{ route('getFilmCreate') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">+Film aanmaken</a>
                 </div>
             @endauth
         </div>

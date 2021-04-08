@@ -37,6 +37,12 @@ class StoreEventRequest extends FormRequest
     public function messages()
     {
         return [
+            'title.required' => 'Titel mag niet leeg zijn.',
+            'description.required' => 'Beschrijving mag niet leeg zijn.',
+            'max_tickets.required' => 'Max. tickets mag niet leeg zijn.',
+            'price.required' => 'Prijs mag niet leeg zijn.',
+            'start_date.required' => 'Startdatum mag niet leeg zijn.',
+            'end_date.required' => 'Einddatum mag niet leeg zijn.',
             'price.gt' => 'De prijs moet positief zijn.',
             'max_tickets.gt' => 'Het maximum aantal tickets moet positief zijn.'
         ];

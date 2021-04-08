@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFilmRequest;
+use App\Http\Requests\UpdateFilmRequest;
 use App\Models\Cinema;
 use App\Models\Film;
 use App\Models\Hall;
@@ -27,7 +29,7 @@ class FilmController extends Controller
         return view('film.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreFilmRequest $request)
     {
         Film::create([
             'hall_id' => $request->input('hall_id'),
@@ -54,7 +56,7 @@ class FilmController extends Controller
         ]);
     }
 
-    public function update($id, Request $request)
+    public function update($id, UpdateFilmRequest $request)
     {
         $film = Film::find($id);
         $film->name = $request->input('name');
