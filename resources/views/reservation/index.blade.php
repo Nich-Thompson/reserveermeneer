@@ -4,6 +4,10 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Evenementreservaties') }}
             </h2>
+            <div class="text-right">
+{{--                <a href="{{ route('getEventCreate') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">Export naar JSON</a>--}}
+                <a href="{{ route('exportCsv') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">Export naar CSV</a>
+            </div>
         </div>
     </x-slot>
 

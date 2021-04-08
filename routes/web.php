@@ -51,4 +51,5 @@ Route::prefix('evenementen-films')->group(function (){
 
 Route::prefix('evenementreservaties')->group(function (){
     Route::get('/', 'ReservationController@index')->middleware(['auth'])->name('getReservationIndex');
+    Route::get('/csv', 'ReservationController@exportCsv')->middleware(['auth'])->name('exportCsv');
 });

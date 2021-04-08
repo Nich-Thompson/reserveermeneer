@@ -1,0 +1,3 @@
+id,event_id,name,email,img_path,start_date,end_date,ticket_number,total_price,created_at,updated_at
+1,1,"Jesse Kok",kok.jesse1@gmail.com,GoahK88N6Y64hjaDfhztQN2ljbaqplQDLV3a4xND.png,"2021-04-01 00:00:00","2021-04-01 00:00:00",1,5,2021-04-06T17:03:47.000000Z,2021-04-06T17:03:47.000000Z
+2,3,"Jesse Kok",kok.jesse1@gmail.com,7rl1fr7XDlRDnGnHPf7NeWDnY69Gz31Bz2zZgKvy.jpg,"2021-05-02 00:00:00","2021-05-02 00:00:00",3,45,2021-04-08T10:39:05.000000Z,2021-04-08T10:39:05.000000Z
