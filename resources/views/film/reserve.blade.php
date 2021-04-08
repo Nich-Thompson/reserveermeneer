@@ -52,16 +52,46 @@
                             </div>
 
                             <div class="col-span-2">
-                                <script>
-                                    let seats = JSON.parse("{{ json_encode($seats) }}")
-                                    console.log(seats)
-                                </script>
-                                @foreach($seats as $seat)
-                                    x: {{ $seat->x }}
-                                    y: {{ $seat->y }}
-                                    id: {{ $seat->id }}<br>
-                                @endforeach
+{{--                                <script>--}}
+{{--                                    let seats = JSON.parse("{{ json_encode($seats) }}")--}}
+{{--                                    console.log(seats)--}}
+{{--                                </script>--}}
+{{--                                @foreach($seats as $seat)--}}
+{{--                                    x: {{ $seat->x }} --}}
+{{--                                    y: {{ $seat->y }}--}}
+{{--                                    id: {{ $seat->id }}<br>--}}
+{{--                                @endforeach--}}
+
+{{--                                <div class="grid grid-cols-3 gap-4">--}}
+{{--                                    <div class="col-span-1">--}}
+{{--                                        --}}{{--empty--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-span-1">--}}
+{{--                                        <div class="grid grid-cols-{{ $maxX + 1 }} gap-4">--}}
+{{--                                            x--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+                                <div class="grid grid-cols-{{ $maxX + 1 }} gap-4 max-w-screen-md align-middle m-auto">
+                                    @for($i = 0; $i < $maxX + 1; $i++)
+                                        @for($j = 0; $j < $maxY + 1; $j++)
+                                            <span hidden>{{
+                                                    $seat = $seats->where('x', $i)->where('y', $j)->first()
+                                                }}</span>
+                                            @if($seat->occupied == false)
+                                                <div class="col-span-1 outline-black hover:bg-gray-200 cursor-pointer " onclick="select( {{ $seat->id }} )">
+                                                    Beschikbaar
+                                                </div>
+                                            @else
+                                                <div class="col-span-1 outline-black">
+                                                    Bezet
+                                                </div>
+                                            @endif
+                                        @endfor
+                                    @endfor
+                                </div>
                             </div>
+                            <input type="number" id="seatId" name="seat_id" value="-1" hidden>
 
                             <div class="col-span-1 text-left">
                                 <a href="{{ route('getEventIndex') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
@@ -80,3 +110,10 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function select(id) {
+        let select = document.getElementById('seatId')
+        select.setAttribute('value', id)
+    }
+</script>

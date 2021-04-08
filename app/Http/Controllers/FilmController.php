@@ -115,6 +115,8 @@ class FilmController extends Controller
     {
         $film = Film::find($id);
         $seats = FilmSeat::where('film_id', $film->id)->get();
+        $maxX = $seats->max('x');
+        $maxY = $seats->max('y');
 
         if ($film == null) {
             return redirect()->route('getEventIndex');
@@ -123,6 +125,8 @@ class FilmController extends Controller
         return view('film.reserve', [
             'film' => $film,
             'seats' => $seats,
+            'maxX' => $maxX,
+            'maxY' => $maxY,
             'id' => $id
         ]);
     }
