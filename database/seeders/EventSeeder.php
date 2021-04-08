@@ -14,14 +14,13 @@ class EventSeeder extends Seeder
      */
     public function run()
     {
-        //TODO: add english fields
         Event::create([
             'title' => 'Ballonnenbrigade',
             'description' => 'Dit jaarlijkse feest is 1 dag vol pret in het thema van ballonnen.',
             'price' => '5.00',
             'max_tickets' => '100',
-            'start_date' => '2021-04-01 09:00:00',
-            'end_date' => '2021-04-01 19:00:00',
+            'start_date' => '2021-07-01 09:00:00',
+            'end_date' => '2021-07-01 19:00:00',
         ]);
 
         Event::create([

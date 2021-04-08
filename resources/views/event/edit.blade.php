@@ -94,9 +94,6 @@
                                         @endif>
                                 </div>
                             </div>
-                            <div class="col-span-2">
-                                <p class="text-gray-400">Door de datum velden leeg te laten worden deze niet veranderd.</p>
-                            </div>
 
                             <div class="col-span-1 text-left">
                                 <a href="{{ route('getEventDetails', $id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
