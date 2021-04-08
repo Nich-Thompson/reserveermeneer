@@ -29,6 +29,11 @@ class EventController extends Controller
     public function show($id)
     {
         $event =Event::find($id);
+
+        if ($event == null) {
+            return redirect()->route('getEventIndex');
+        }
+
         return view('event.details', ['event' => $event]);
     }
 
@@ -54,6 +59,11 @@ class EventController extends Controller
     public function edit($id)
     {
         $event =Event::find($id);
+
+        if ($event == null) {
+            return redirect()->route('getEventIndex');
+        }
+
         return view('event.edit', [
             'event' => $event,
             'id' => $id
@@ -82,6 +92,11 @@ class EventController extends Controller
     public function delete($id)
     {
         $event =Event::find($id);
+
+        if ($event == null) {
+            return redirect()->route('getEventIndex');
+        }
+
         return view('event.delete', [
             'event' => $event,
             'id' => $id
@@ -100,6 +115,11 @@ class EventController extends Controller
     public function showReserve($id)
     {
         $event =Event::find($id);
+
+        if ($event == null) {
+            return redirect()->route('getEventIndex');
+        }
+
         return view('event.reserve', [
             'event' => $event,
             'id' => $id
