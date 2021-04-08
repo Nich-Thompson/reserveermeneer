@@ -16,7 +16,7 @@ class FilmController extends Controller
         $cinema = Cinema::find($hall->cinema_id);
 
         if ($film == null) {
-            return redirect()->route('getFilmIndex');
+            return redirect()->route('getEventIndex');
         }
 
         return view('film.details', ['film' => $film, 'cinema' => $cinema]);
@@ -37,7 +37,7 @@ class FilmController extends Controller
             'end_time' => $request->input('end_time'),
         ]);
 
-        return redirect()->route('getFilmIndex');
+        return redirect()->route('getEventIndex');
     }
 
     public function edit($id)
@@ -45,7 +45,7 @@ class FilmController extends Controller
         $film = Film::find($id);
 
         if ($film == null) {
-            return redirect()->route('getFilmIndex');
+            return redirect()->route('getEventIndex');
         }
 
         return view('film.edit', [
@@ -57,10 +57,9 @@ class FilmController extends Controller
     public function update($id, Request $request)
     {
         $film = Film::find($id);
-        $film->title = $request->input('title');
+        $film->name = $request->input('name');
         $film->description = $request->input('description');
-        $film->price = $request->input('price');
-        $film->max_tickets = $request->input('max_tickets');
+        $film->hall_id = $request->input('hall_id');
 
         if($request->start_time != null || $request->end_time != null)
         {
@@ -70,7 +69,7 @@ class FilmController extends Controller
 
         $film->save();
 
-        return redirect()->route('getFilmIndex');
+        return redirect()->route('getEventIndex');
     }
 
     public function delete($id)
@@ -78,7 +77,7 @@ class FilmController extends Controller
         $film = Film::find($id);
 
         if ($film == null) {
-            return redirect()->route('getFilmIndex');
+            return redirect()->route('getEventIndex');
         }
 
         return view('film.delete', [
@@ -93,7 +92,7 @@ class FilmController extends Controller
 
         $film->delete();
 
-        return redirect()->route('getFilmIndex');
+        return redirect()->route('getEventIndex');
     }
 
     public function showReserve($id)
@@ -101,7 +100,7 @@ class FilmController extends Controller
         $film = Film::find($id);
 
         if ($film == null) {
-            return redirect()->route('getFilmIndex');
+            return redirect()->route('getEventIndex');
         }
 
         return view('film.reserve', [
@@ -147,6 +146,6 @@ class FilmController extends Controller
 //            'total_price' => $event->price*$days*$request->ticket_number,
 //        ]);
 
-        return redirect()->route('getFilmIndex');
+        return redirect()->route('getEventIndex');
     }
 }
