@@ -21,9 +21,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::prefix('evenementen-films')->group(function (){
+Route::prefix('evenementen-films')->group(function () {
     Route::get('/', 'EventController@index')->name('getEventIndex');
     Route::get('/evenement-aanmaken', 'EventController@create')->middleware(['auth'])->name('getEventCreate');
     Route::post('/evenement-aanmaken', 'EventController@store')->middleware(['auth'])->name('postEventCreate');
@@ -44,4 +44,8 @@ Route::prefix('evenementen-films')->group(function (){
     Route::post('/{id}/film-delete', 'CinemaController@destroy')->middleware(['auth'])->name('postFilmDelete');
     Route::get('/{id}/film-reserveer', 'CinemaController@showReserve')->name('getFilmReserve');
     Route::post('/{id}/film-reserveer', 'CinemaController@reserve')->name('postFilmReserve');
+});
+
+Route::prefix('restaurants')->group(function () {
+    Route::get('/', 'RestaurantController@index')->name('getRestaurantIndex');
 });
