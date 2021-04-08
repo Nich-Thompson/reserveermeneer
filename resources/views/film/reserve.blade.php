@@ -56,10 +56,10 @@
                             </div>
                             <div class="col-span-2">
                                 <div class="grid grid-cols-{{ $maxX + 1 }} gap-4 max-w-screen-md align-middle m-auto">
-                                    @for($i = 0; $i < $maxX + 1; $i++)
-                                        @for($j = 0; $j < $maxY + 1; $j++)
+                                    @for($i = 0; $i < $maxY + 1; $i++)
+                                        @for($j = 0; $j < $maxX + 1; $j++)
                                             <span hidden>{{
-                                                    $seat = $seats->where('x', $i)->where('y', $j)->first()
+                                                    $seat = $seats->where('x', $j)->where('y', $i)->first()
                                                 }}</span>
                                             @if($seat->occupied == false)
                                                 <div class="col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer" id="{{ $seat->id }}" onclick="select( {{ $seat->id }} )">

@@ -152,22 +152,24 @@ class FilmController extends Controller
         $x = $filmSeat->x;
         $y = $filmSeat->y;
         $leftSeat = FilmSeat::query()->where([
+            ['film_id', '=', $id],
             ['x', '=', $x - 1],
             ['y', '=', $y]
         ])->first();
-//        if ($leftSeat) {
+        if ($leftSeat) {
             $leftSeat->occupied = 1;
             $leftSeat->save();
-//        }
+        }
         // occupy the right seat
         $rightSeat = FilmSeat::query()->where([
+            ['film_id', '=', $id],
             ['x', '=', $x + 1],
             ['y', '=', $y]
         ])->first();
-//        if ($rightSeat) {
+        if ($rightSeat) {
             $rightSeat->occupied = 1;
             $rightSeat->save();
-//        }
+        }
 
         return redirect()->route('getEventIndex');
     }
