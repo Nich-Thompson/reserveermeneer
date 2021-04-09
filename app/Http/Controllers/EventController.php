@@ -17,8 +17,22 @@ use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
 {
-    //
+    // basic index function, orders by name
     public function index()
+    {
+        $activities = $this->getActivities();
+
+        // order by name
+        $name = array_column($activities, 'name');
+
+        array_multisort($name, SORT_ASC, $activities);
+
+        return view('event.index', [
+            'activities' => $activities,
+        ]);
+    }
+
+    public function getActivities()
     {
         $events =Event::all();
         $films = Film::all();
@@ -36,11 +50,7 @@ class EventController extends Controller
 
         $activities = array_merge($events->toArray(), $newFilmArray);
 
-        // order by location
-
-        return view('event.index', [
-            'activities' => $activities,
-        ]);
+        return $activities;
     }
 
     public function show($id)
