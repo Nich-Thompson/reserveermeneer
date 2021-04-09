@@ -63,9 +63,30 @@ class RestaurantController extends Controller
         return redirect('/restaurants')->with('status', "Bedankt voor je reservering op " . $request->date . " om " . $request->time . "!");
     }
 
-    public function create()
+    public function dashboard(Request $request)
     {
-        //
+        $date = date("Y-m-d");
+        $restaurant = null;
+
+        if ($request->restaurant != null) {
+            $restaurant = Restaurant::find($request->restaurant);
+            if ($restaurant == null) {
+                return redirect('/dashboard')->with('status', "Het gekozen restaurant bestaat niet!");
+            }
+        } else {
+            $restaurant = \App\Models\Restaurant::first();
+        }
+
+        if ($request->date != null) {
+            $date = $request->date;
+        }
+
+        $restaurants = \App\Models\Restaurant::all();
+
+        $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->get();
+
+        return view('dashboard', ["restaurants" => $restaurants, "reservations" => $reservations,
+            "restaurant" => $restaurant, "date" => $date]);
     }
 
     public function store(Request $request)

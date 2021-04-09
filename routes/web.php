@@ -17,11 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//Route::get('/dashboard', function () {
+//    $restaurants = \App\Models\Restaurant::all();
+//    $restaurant = \App\Models\Restaurant::first();
+//    $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", date("Y-m-d", "today"))->get();
+//
+//    return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
 
 require __DIR__ . '/auth.php';
+
+Route::get('/dashboard', 'RestaurantController@dashboard')->middleware(['auth'])->name('dashboard');
 
 Route::prefix('evenementen-films')->group(function () {
     Route::get('/', 'EventController@index')->name('getEventIndex');
