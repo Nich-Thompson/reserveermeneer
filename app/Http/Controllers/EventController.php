@@ -20,9 +20,10 @@ class EventController extends Controller
     {
         $events =Event::all();
         $films = Film::all();
+        $activities = array_merge($events->toArray(), $films->toArray());
+//        dd($activities);
         return view('event.index', [
-            'events' => $events,
-            'films' => $films
+            'activities' => $activities,
         ]);
     }
 

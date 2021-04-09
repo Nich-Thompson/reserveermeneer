@@ -71,7 +71,7 @@
                                            @if(old('start_date') != null)
                                            value="{{ old('start_date') }}"
                                            @else
-                                           value="{{ date("Y-m-d\TH:i", strtotime($film->start_time)) }}"
+                                           value="{{ date("Y-m-d\TH:i", strtotime($film->start_date)) }}"
                                         @endif>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                            @if(old('end_date') != null)
                                            value="{{ old('end_date') }}"
                                            @else
-                                           value="{{ date("Y-m-d\TH:i", strtotime($film->end_time)) }}"
+                                           value="{{ date("Y-m-d\TH:i", strtotime($film->end_date)) }}"
                                         @endif>
                                 </div>
                             </div>

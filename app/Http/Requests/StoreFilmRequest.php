@@ -29,8 +29,8 @@ class StoreFilmRequest extends FormRequest
             'name' => 'required',
             'description' => 'required',
             'hall_id' => 'required|gt:0',
-            'start_time' => 'required',
-            'end_time' => 'required'
+            'start_date' => 'required',
+            'end_date' => 'required'
         ];
     }
 
@@ -40,8 +40,8 @@ class StoreFilmRequest extends FormRequest
             'name.required' => 'Naam mag niet leeg zijn.',
             'description.required' => 'Beschrijving mag niet leeg zijn.',
             'hall_id.required' => 'Halnummer mag niet leeg zijn.',
-            'start_time.required' => 'Starttijd mag niet leeg zijn.',
-            'end_time.required' => 'Eindtijd mag niet leeg zijn.',
+            'start_date.required' => 'Starttijd mag niet leeg zijn.',
+            'end_date.required' => 'Eindtijd mag niet leeg zijn.',
             'hall_id.gt' => 'Halnummer moet positief zijn.',
         ];
     }
@@ -55,12 +55,12 @@ class StoreFilmRequest extends FormRequest
                 $validator->errors()->add('field', 'Deze hal bestaat niet.');
             }
 
-            if ($this->start_time > $this->end_time) {
+            if ($this->start_date > $this->end_date) {
                 $validator->errors()->add('field', 'De eindtijd moet na de startdatum vallen.');
             }
             $date = new DateTime(date("Y-m-d"));
             date_modify($date, "+1 day");
-            $startDate = new DateTime($this->start_time);
+            $startDate = new DateTime($this->start_date);
             if ($date >= $startDate) {
                 $validator->errors()->add('field', 'De starttijd moet na vandaag vallen.');
             }

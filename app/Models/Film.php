@@ -13,7 +13,7 @@ class Film extends Model
         "hall_id",
         "name",
         "description",
-        "start_time",
-        "end_time",
+        "start_date",
+        "end_date",
     ];
 }

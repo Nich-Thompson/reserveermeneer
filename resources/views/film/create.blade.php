@@ -40,13 +40,13 @@
                             <div class="col-span-1">
                                 <label>Starttijd</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="start_time" class="form-control w-full text-gray-500" value="{{ old('start_time') }}">
+                                    <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500" value="{{ old('start_date') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <label>Eindtijd</label>
                                 <div class="form-group">
-                                    <input type="datetime-local" name="end_time" class="form-control w-full text-gray-500" value="{{ old('end_time') }}">
+                                    <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500" value="{{ old('end_date') }}">
                                 </div>
                             </div>
 

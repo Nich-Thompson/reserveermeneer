@@ -39,8 +39,8 @@ class FilmController extends Controller
             'hall_id' => $request->input('hall_id'),
             'name' => $request->input('name'),
             'description' => $request->input('description'),
-            'start_time' => $request->input('start_time'),
-            'end_time' => $request->input('end_time'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
         ]);
 
         $seats = Seat::where('hall_id', $film->hall_id)->get();
@@ -78,10 +78,10 @@ class FilmController extends Controller
         $film->description = $request->input('description');
         $film->hall_id = $request->input('hall_id');
 
-        if($request->start_time != null || $request->end_time != null)
+        if($request->start_date != null || $request->end_date != null)
         {
-            $film->start_time = $request->input('start_time');
-            $film->end_time = $request->input('end_time');
+            $film->start_date = $request->input('start_date');
+            $film->end_date = $request->input('end_date');
         }
 
         $film->save();

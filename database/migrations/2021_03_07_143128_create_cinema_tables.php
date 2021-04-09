@@ -56,8 +56,8 @@ class CreateCinemaTables extends Migration
 
             $table->string('name');
             $table->string('description');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
 

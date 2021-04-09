@@ -10,9 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="mb-4">
+                        <b>Naam:</b> {{ $film->name }}<br>
                         <b>Beschrijving:</b> {{ $film->description }}<br>
-                        <b>Van:</b> {{ $film->start_time }}<br>
-                        <b>Tot:</b> {{ $film->end_time }}<br>
+                        <b>Van:</b> {{ $film->start_date }}<br>
+                        <b>Tot:</b> {{ $film->end_date }}<br>
                         <b>Bioscoop:</b> {{ $cinema->name }}<br>
                     </div>
 

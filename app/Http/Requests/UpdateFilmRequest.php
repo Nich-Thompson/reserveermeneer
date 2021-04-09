@@ -51,18 +51,18 @@ class UpdateFilmRequest extends FormRequest
                 $validator->errors()->add('field', 'Deze hal bestaat niet.');
             }
 
-            if($this->start_time != null || $this->end_time != null)
+            if($this->start_date != null || $this->end_date != null)
             {
                 $validator->after(function ($validator) {
-                    if($this->start_time == null || $this->end_time == null) {
+                    if($this->start_date == null || $this->end_date == null) {
                         $validator->errors()->add('field', 'Je moet beide data invullen als je deze wilt veranderen.');
                     }
-                    if ($this->start_time > $this->end_time) {
+                    if ($this->start_date > $this->end_date) {
                         $validator->errors()->add('field', 'De eindtijd moet na de startdatum vallen.');
                     }
                     $date = new DateTime(date("Y-m-d"));
                     date_modify($date, "+1 day");
-                    $startDate = new DateTime($this->start_time);
+                    $startDate = new DateTime($this->start_date);
                     if ($date >= $startDate) {
                         $validator->errors()->add('field', 'De starttijd moet na vandaag vallen.');
                     }
