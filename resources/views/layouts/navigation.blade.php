@@ -23,6 +23,11 @@
                     <x-nav-link :href="route('getRestaurantIndex')" :active="request()->routeIs('getRestaurantIndex')">
                         {{ __('Restaurants') }}
                     </x-nav-link>
+                    @auth
+                        <x-nav-link :href="route('getReservationIndex')" :active="request()->routeIs('getReservationIndex')">
+                            {{ __('Evenementreservaties') }}
+                        </x-nav-link>
+                    @endauth
                 </div>
             </div>
 

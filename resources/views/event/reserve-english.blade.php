@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Reserveren') }}
+            {{ __('Reserve') }}
         </h2>
     </x-slot>
 
@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @if ($errors->any())
                 <div class="alert alert-danger">
-                    <strong>De ingevoerde data is niet juist.</strong><br><br>
+                    <strong>The submitted data is incorrect.</strong><br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -19,12 +19,12 @@
             @endif
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('postEventReserve', $id ) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('postEventReserveEnglish', $id ) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="name" placeholder="Naam" value="{{ old('name') }}">
+                                    <input type="text" class="form-control w-full" name="name" placeholder="Name" value="{{ old('name') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
@@ -34,66 +34,66 @@
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="address" placeholder="Adres" value="{{ old('address') }}">
+                                    <input type="text" class="form-control w-full" name="address" placeholder="Address" value="{{ old('address') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
-                            {{--empty--}}
+                                {{--empty--}}
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="postal_code" placeholder="Postcode" value="{{ old('postal_code') }}">
+                                    <input type="text" class="form-control w-full" name="postal_code" placeholder="Postal code" value="{{ old('postal_code') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" class="form-control w-full" name="city" placeholder="Stad" value="{{ old('city') }}">
+                                    <input type="text" class="form-control w-full" name="city" placeholder="City" value="{{ old('city') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
                                     <input type="date" class="form-control w-full text-gray-500" name="start_date"
-                                            @if(old('start_date') != null)
-                                            value="{{ old('start_date') }}"
-                                            @else
-                                            value="{{ date("Y-m-d", strtotime($event->start_date)) }}"
+                                           @if(old('start_date') != null)
+                                           value="{{ old('start_date') }}"
+                                           @else
+                                           value="{{ date("Y-m-d", strtotime($event->start_date)) }}"
                                         @endif>
                                 </div>
-                                <label>Dit evenement loopt van {{ date("Y-m-d", strtotime($event->start_date)) }} tot {{ date("Y-m-d", strtotime($event->end_date)) }}</label>
+                                <label>This event runs from {{ date("Y-m-d", strtotime($event->start_date)) }} to {{ date("Y-m-d", strtotime($event->end_date)) }}</label>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" value="{{ old('ticket_number') }}">
+                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Ticket amount" value="{{ old('ticket_number') }}">
                                 </div>
-                                <label>Het maximaal aantal tickets is {{ $event->max_tickets }}.</label>
+                                <label>The maximum number of tickets is {{ $event->max_tickets }}.</label>
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
                                     {{--<div class="flex-row">--}}
                                     <input type="radio" class="form-control" name="days_count" value="1" {{ (old('days_count') == '1') ? 'checked' : ''}} checked>
-                                    <label>1 Dag</label>
+                                    <label>1 Day</label>
                                     <input type="radio" class="form-control" name="days_count" value="2" {{ (old('days_count') == '2') ? 'checked' : ''}}>
-                                    <label>2 Dagen</label>
+                                    <label>2 Days</label>
                                     <input type="radio" class="form-control" name="days_count" value="3" {{ (old('days_count') == '3') ? 'checked' : ''}}>
-                                    <label>Alle Dagen</label>
+                                    <label>All Days</label>
                                     {{--</div>--}}
                                 </div>
                             </div>
                             <div class="col-span-2">
                                 <div class="form-group">
-                                    <label for="file" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 border border-black rounded shadow">Upload foto:</label>
+                                    <label for="file" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 border border-black rounded shadow">Upload photo:</label>
                                     <input type="file" id="file" name="file" hidden>
                                 </div>
                             </div>
 
                             <div class="col-span-1 text-left">
                                 <a href="{{ route('getEventIndex') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-                                    Terug
+                                    Back
                                 </a>
                             </div>
                             <div class="col-span-1 text-right">
                                 <button type="submit" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-                                    Reserveren
+                                    Reserve
                                 </button>
                             </div>
                         </div>

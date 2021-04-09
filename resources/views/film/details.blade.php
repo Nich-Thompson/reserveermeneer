@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $event->name }}
+            {{ $film->name }}
         </h2>
     </x-slot>
 
@@ -10,12 +10,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="mb-4">
-                        <b>Beschrijving:</b> {{ $event->description }}<br>
-                        <b>Van:</b> {{ $event->start_date }}<br>
-                        <b>Tot:</b> {{ $event->end_date }}<br>
-                        <b>Prijs:</b> {{ $event->price }} euro<br>
-                        <b>Max. aantal tickets:</b> {{ $event->max_tickets }}<br>
-                        <b>Locatie:</b> {{ $event->address }}, {{ $event->city }}<br>
+                        <b>Naam:</b> {{ $film->name }}<br>
+                        <b>Beschrijving:</b> {{ $film->description }}<br>
+                        <b>Van:</b> {{ $film->start_date }}<br>
+                        <b>Tot:</b> {{ $film->end_date }}<br>
+                        <b>Bioscoop:</b> {{ $cinema->name }}<br>
+                        <b>Locatie:</b> {{ $cinema->address }}, {{ $cinema->city }}
                     </div>
 
                     <div class=" text-left">
@@ -25,17 +25,14 @@
                     </div>
                     @auth
                         <div class=" text-right">
-                            <a href="{{ route('getEventUpdate', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+                            <a href="{{ route('getFilmUpdate', $film->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
                                 Bewerken
                             </a>
                         </div>
                     @else
                         <div class=" text-right">
-                            <a href="{{ route('getEventReserve', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow m-3">
-                                Reserveren (NL)
-                            </a>
-                            <a href="{{ route('getEventReserveEnglish', $event->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
-                                Reserve (EN)
+                            <a href="{{ route('getFilmReserve', $film->id) }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow m-3">
+                                Reserveren
                             </a>
                         </div>
                     @endauth

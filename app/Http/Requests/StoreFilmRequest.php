@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Hall;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEventRequest extends FormRequest
+class StoreFilmRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,10 +28,9 @@ class StoreEventRequest extends FormRequest
         return [
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required|gt:0',
-            'max_tickets' => 'required|gt:0',
+            'hall_id' => 'required|gt:0',
             'start_date' => 'required',
-            'end_date' => 'required',
+            'end_date' => 'required'
         ];
     }
 
@@ -39,26 +39,30 @@ class StoreEventRequest extends FormRequest
         return [
             'name.required' => 'Naam mag niet leeg zijn.',
             'description.required' => 'Beschrijving mag niet leeg zijn.',
-            'max_tickets.required' => 'Max. tickets mag niet leeg zijn.',
-            'price.required' => 'Prijs mag niet leeg zijn.',
-            'start_date.required' => 'Startdatum mag niet leeg zijn.',
-            'end_date.required' => 'Einddatum mag niet leeg zijn.',
-            'price.gt' => 'De prijs moet positief zijn.',
-            'max_tickets.gt' => 'Het maximum aantal tickets moet positief zijn.'
+            'hall_id.required' => 'Halnummer mag niet leeg zijn.',
+            'start_date.required' => 'Starttijd mag niet leeg zijn.',
+            'end_date.required' => 'Eindtijd mag niet leeg zijn.',
+            'hall_id.gt' => 'Halnummer moet positief zijn.',
         ];
     }
 
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
+            // check if hall exists
+            $hall = Hall::find($this->hall_id);
+            if (!$hall) {
+                $validator->errors()->add('field', 'Deze hal bestaat niet.');
+            }
+
             if ($this->start_date > $this->end_date) {
-                $validator->errors()->add('field', 'De einddatum moet na de startdatum vallen.');
+                $validator->errors()->add('field', 'De eindtijd moet na de startdatum vallen.');
             }
             $date = new DateTime(date("Y-m-d"));
             date_modify($date, "+1 day");
             $startDate = new DateTime($this->start_date);
             if ($date >= $startDate) {
-                $validator->errors()->add('field', 'De startdatum moet na vandaag vallen.');
+                $validator->errors()->add('field', 'De starttijd moet na vandaag vallen.');
             }
         });
     }

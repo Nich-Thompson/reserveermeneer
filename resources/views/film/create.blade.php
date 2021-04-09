@@ -19,12 +19,17 @@
             @endif
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('postEventCreate') }}" method="POST">
+                    <form action="{{ route('postFilmCreate') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control w-full" placeholder="Titel" value="{{ old('name') }}">
+                                    <input type="text" name="name" class="form-control w-full" placeholder="Naam" value="{{ old('name') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <input type="number" name="hall_id" class="form-control w-full" placeholder="Halnummer" value="{{ old('hall_id') }}">
                                 </div>
                             </div>
                             <div class="col-span-2">
@@ -33,23 +38,13 @@
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <div class="form-group">
-                                    <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ old('max_tickets') }}">
-                                </div>
-                            </div>
-                            <div class="col-span-1  ">
-                                <div class="form-group">
-                                    <input type="number" step=".01" name="price" class="form-control w-full" placeholder="Prijs" value="{{ old('price') }}">
-                                </div>
-                            </div>
-                            <div class="col-span-1">
-                                <label>Begindatum</label>
+                                <label>Starttijd</label>
                                 <div class="form-group">
                                     <input type="datetime-local" name="start_date" class="form-control w-full text-gray-500" value="{{ old('start_date') }}">
                                 </div>
                             </div>
                             <div class="col-span-1">
-                                <label>Einddatum</label>
+                                <label>Eindtijd</label>
                                 <div class="form-group">
                                     <input type="datetime-local" name="end_date" class="form-control w-full text-gray-500" value="{{ old('end_date') }}">
                                 </div>

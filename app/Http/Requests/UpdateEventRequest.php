@@ -25,7 +25,7 @@ class UpdateEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'price' => 'required|gt:0',
             'max_tickets' => 'required|gt:0',
@@ -35,6 +35,10 @@ class UpdateEventRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => 'Naam mag niet leeg zijn.',
+            'description.required' => 'Beschrijving mag niet leeg zijn.',
+            'max_tickets.required' => 'Max. tickets mag niet leeg zijn.',
+            'price.required' => 'Prijs mag niet leeg zijn.',
             'price.gt' => 'De prijs moet positief zijn.',
             'max_tickets.gt' => 'Het maximum aantal tickets moet positief zijn.'
         ];

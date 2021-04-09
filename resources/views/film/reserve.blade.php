@@ -19,7 +19,7 @@
             @endif
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('postEventReserve', $id ) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('postFilmReserve', $id ) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="col-span-1">
-                            {{--empty--}}
+                                {{--empty--}}
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
@@ -50,41 +50,33 @@
                                     <input type="text" class="form-control w-full" name="city" placeholder="Stad" value="{{ old('city') }}">
                                 </div>
                             </div>
-                            <div class="col-span-1">
-                                <div class="form-group">
-                                    <input type="date" class="form-control w-full text-gray-500" name="start_date"
-                                            @if(old('start_date') != null)
-                                            value="{{ old('start_date') }}"
-                                            @else
-                                            value="{{ date("Y-m-d", strtotime($event->start_date)) }}"
-                                        @endif>
-                                </div>
-                                <label>Dit evenement loopt van {{ date("Y-m-d", strtotime($event->start_date)) }} tot {{ date("Y-m-d", strtotime($event->end_date)) }}</label>
-                            </div>
-                            <div class="col-span-1">
-                                <div class="form-group">
-                                    <input type="number" name="ticket_number" class="form-control w-full" placeholder="Aantal tickets" value="{{ old('ticket_number') }}">
-                                </div>
-                                <label>Het maximaal aantal tickets is {{ $event->max_tickets }}.</label>
-                            </div>
-                            <div class="col-span-1">
-                                <div class="form-group">
-                                    {{--<div class="flex-row">--}}
-                                    <input type="radio" class="form-control" name="days_count" value="1" {{ (old('days_count') == '1') ? 'checked' : ''}} checked>
-                                    <label>1 Dag</label>
-                                    <input type="radio" class="form-control" name="days_count" value="2" {{ (old('days_count') == '2') ? 'checked' : ''}}>
-                                    <label>2 Dagen</label>
-                                    <input type="radio" class="form-control" name="days_count" value="3" {{ (old('days_count') == '3') ? 'checked' : ''}}>
-                                    <label>Alle Dagen</label>
-                                    {{--</div>--}}
-                                </div>
+
+                            <div class="col-span-2 m-auto">
+                                <b>Kies een stoel: </b>
                             </div>
                             <div class="col-span-2">
-                                <div class="form-group">
-                                    <label for="file" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-1 px-2 border border-black rounded shadow">Upload foto:</label>
-                                    <input type="file" id="file" name="file" hidden>
+                                <div class="grid grid-cols-{{ $maxX + 1 }} gap-4 max-w-screen-md align-middle m-auto">
+                                    @for($i = 0; $i < $maxY + 1; $i++)
+                                        @for($j = 0; $j < $maxX + 1; $j++)
+                                            <span hidden>{{
+                                                    $seat = $seats->where('x', $j)->where('y', $i)->first()
+                                                }}</span>
+                                            @if($seat->occupied == false)
+                                                <div class="col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer" id="{{ $seat->id }}" onclick="select( {{ $seat->id }} )">
+                                                    O
+                                                </div>
+                                            @else
+                                                <div class="col-span-1 outline-black bg-red-300" id="{{ $seat->id }}">
+                                                    X
+                                                </div>
+                                            @endif
+                                        @endfor
+                                    @endfor
                                 </div>
                             </div>
+
+                            {{--hidden seat input--}}
+                            <input type="number" id="seatId" name="seat_id" value="-1" hidden>
 
                             <div class="col-span-1 text-left">
                                 <a href="{{ route('getEventIndex') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
@@ -103,3 +95,22 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function select(id) {
+        let select = document.getElementById('seatId')
+        select.setAttribute('value', id)
+
+        let seatElements = document.getElementsByClassName('col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer selected')
+        for (let i = 0; i < seatElements.length; i++) {
+            if (seatElements[i].classList.contains('selected')) {
+                seatElements[i].setAttribute('style', '')
+                seatElements[i].classList.remove('selected')
+            }
+        }
+
+        let selectedElement = document.getElementById(id)
+        selectedElement.classList.add('selected')
+        selectedElement.setAttribute('style', 'background: bisque')
+    }
+</script>

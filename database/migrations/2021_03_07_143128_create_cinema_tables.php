@@ -16,6 +16,8 @@ class CreateCinemaTables extends Migration
         Schema::create('cinemas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('address');
+            $table->string('city');
             $table->timestamps();
         });
 
@@ -42,7 +44,6 @@ class CreateCinemaTables extends Migration
 
             $table->integer('x');
             $table->integer('y');
-            $table->tinyInteger('occupied');
             $table->timestamps();
         });
 
@@ -57,8 +58,28 @@ class CreateCinemaTables extends Migration
 
             $table->string('name');
             $table->string('description');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->timestamps();
+        });
+
+        Schema::create('film_seats', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('film_id');
+            $table->unsignedBigInteger('seat_id');
+
+            $table->foreign('film_id')
+                ->references('id')
+                ->on('films')
+                ->onDelete('cascade');
+            $table->foreign('seat_id')
+                ->references('id')
+                ->on('seats')
+                ->onDelete('cascade');
+
+            $table->integer('x');
+            $table->integer('y');
+            $table->tinyInteger('occupied');
             $table->timestamps();
         });
 
@@ -73,10 +94,14 @@ class CreateCinemaTables extends Migration
                 ->onDelete('cascade');
             $table->foreign('seat_id')
                 ->references('id')
-                ->on('seats')
+                ->on('film_seats')
                 ->onDelete('cascade');
 
             $table->string('name');
+            $table->string('email');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('city');
             $table->timestamps();
         });
     }

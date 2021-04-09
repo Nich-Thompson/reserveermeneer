@@ -6,7 +6,7 @@ use App\Models\Event;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReserveEventRequest extends FormRequest
+class ReserveEventRequestEnglish extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,12 +27,12 @@ class ReserveEventRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'file' => 'required|mimes:jpeg,png',
             'email' => 'required',
             'address' => 'required',
             'postal_code' => 'required',
             'city' => 'required',
             'ticket_number' => 'required|gt:0',
-            'file' => 'required|mimes:jpeg,png',
             'start_date' => 'required',
             'days_count' => 'required',
         ];
@@ -41,15 +41,8 @@ class ReserveEventRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Naam mag niet leeg zijn.',
-            'file.required' => 'Je moet een foto uploaden.',
-            'email.required' => 'E-mail mag niet leeg zijn.',
-            'address.required' => 'Adres mag niet leeg zijn.',
-            'postal_code.required' => 'Postcode mag niet leeg zijn.',
-            'city.required' => 'Stad mag niet leeg zijn.',
-            'ticket_number.required' => 'Ticket aantal mag niet leeg zijn.',
-            'file.mimes' => 'Dit bestandstype wordt niet ondersteund.',
-            'ticket_number.gt' => 'Het aantal tickets moet positief zijn.'
+            'file.mimes' => 'This file type is not supported.',
+            'ticket_number.gt' => 'The ticket amount must be positive.'
         ];
     }
 
@@ -78,15 +71,15 @@ class ReserveEventRequest extends FormRequest
             }
             //var_dump($event);
             if ($reservationStartDate < $eventStartDate) {
-                $validator->errors()->add('field', 'Je reservering kan niet eerder beginnen dan het evenement begint.');
+                $validator->errors()->add('field', 'Your reservation cannot start before the event does.');
             }
             if ($reservationEndDate > $eventEndDate) {
-                $validator->errors()->add('field', 'Je reservering kan niet langer duren dan het evenement.');
+                $validator->errors()->add('field', 'Your reservation cannot last longer than the event.');
             }
 
             if ($this->ticket_number > $event->max_tickets)
             {
-                $validator->errors()->add('field', 'Je kunt niet meer tickets kopen dan het maximum.');
+                $validator->errors()->add('field', 'You cannot purchase more tickets than the maximum.');
             }
         });
     }

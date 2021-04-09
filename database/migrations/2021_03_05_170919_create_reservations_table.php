@@ -13,7 +13,7 @@ class CreateReservationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservations', function (Blueprint $table) {
+        Schema::create('event_reservations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('event_id');
 
@@ -24,6 +24,9 @@ class CreateReservationsTable extends Migration
 
             $table->string('name');
             $table->string('email');
+            $table->string('address');
+            $table->string('postal_code');
+            $table->string('city');
             $table->string('img_path');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
@@ -40,6 +43,6 @@ class CreateReservationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservations');
+        Schema::dropIfExists('event_reservations');
     }
 }
