@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Helper\Helper;
 use App\Models\Restaurant;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -46,45 +47,8 @@ class ReserveRestaurantRequest extends FormRequest
 
             $restaurant = Restaurant::find($this->id);
 
-            $day_of_week = date('w', strtotime($unixtime));
-
-            $open_time = null;
-            $close_time = null;
-
-            switch ($day_of_week) {
-                case 0:
-                    $open_time = strtotime($restaurant->sunday_opening_time);
-                    $close_time = strtotime($restaurant->sunday_closing_time);
-                    break;
-                case 1:
-                    $open_time = strtotime($restaurant->monday_opening_time);
-                    $close_time = strtotime($restaurant->monday_closing_time);
-                    break;
-                case 2:
-                    $open_time = strtotime($restaurant->tuesday_opening_time);
-                    $close_time = strtotime($restaurant->tuesday_closing_time);
-                    break;
-                case 3:
-                    $open_time = strtotime($restaurant->wednesday_opening_time);
-                    $close_time = strtotime($restaurant->wednesday_closing_time);
-                    break;
-                case 4:
-                    $open_time = strtotime($restaurant->thursday_opening_time);
-                    $close_time = strtotime($restaurant->thursday_closing_time);
-                    break;
-                case 5:
-                    $open_time = strtotime($restaurant->friday_opening_time);
-                    $close_time = strtotime($restaurant->friday_closing_time);
-                    break;
-                case 6:
-                    $open_time = strtotime($restaurant->saturday_opening_time);
-                    $close_time = strtotime($restaurant->saturday_closing_time);
-                    break;
-                default:
-                    $open_time = strtotime("00:00");
-                    $close_time = strtotime("00:00");
-                    break;
-            }
+            $open_time = (new \App\Helper\Helper)->get_restaurant_opening_time($this->date, $restaurant);
+            $close_time = (new \App\Helper\Helper)->get_restaurant_closing_time($this->date, $restaurant);
 
             if ($unixtime < $open_time) {
                 $validator->errors()->add('field', 'Het restaurant opent pas om ' . date("H:i", $open_time) . ", dit ligt na het gekozen tijdstip.");
@@ -92,6 +56,9 @@ class ReserveRestaurantRequest extends FormRequest
 
             if ($unixtime > $close_time) {
                 $validator->errors()->add('field', 'Het restaurant sluit om ' . date("H:i", $close_time) . ", dit is eerder dan het gekozen tijdstip.");
+            }
+            if ($unixtime < strtotime(date("H:i"))) {
+                $validator->errors()->add('field', "De combinatie van het tijdstip en de datum ligt in het verleden.");
             }
         });
     }

@@ -94,10 +94,13 @@ class RestaurantController extends Controller
 
         $restaurants = \App\Models\Restaurant::all();
 
+        $open_time = (new \App\Helper\Helper)->get_restaurant_opening_time($date, $restaurant);
+        $close_time = (new \App\Helper\Helper)->get_restaurant_closing_time($date, $restaurant);
+
         $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->get();
 
         return view('dashboard', ["restaurants" => $restaurants, "reservations" => $reservations,
-            "restaurant" => $restaurant, "date" => $date]);
+            "restaurant" => $restaurant, "date" => $date, "open_time" => $open_time, "close_time" => $close_time]);
     }
 
     public function store(Request $request)
