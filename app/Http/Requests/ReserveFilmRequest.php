@@ -50,7 +50,11 @@ class ReserveFilmRequest extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
-            $filmSeat = FilmSeat::find($this->seat_id);
+            $filmSeat = FilmSeat::query()->where([
+                ['id', '=', $this->seat_id],
+                ['occupied', '=', '1']
+            ])->first();
+            
             if ($filmSeat) {
                 $validator->errors()->add('field', 'Deze stoel is al bezet.');
             }
