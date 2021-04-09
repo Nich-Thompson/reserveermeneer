@@ -99,8 +99,11 @@ class RestaurantController extends Controller
 
         $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->get();
 
+        $timestamps = \App\Models\RestaurantReservation::select("time")->where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->distinct()->get();
+
         return view('dashboard', ["restaurants" => $restaurants, "reservations" => $reservations,
-            "restaurant" => $restaurant, "date" => $date, "open_time" => $open_time, "close_time" => $close_time]);
+            "restaurant" => $restaurant, "date" => $date, "open_time" => $open_time, "close_time" => $close_time,
+            "timestamps" => $timestamps]);
     }
 
     public function store(Request $request)

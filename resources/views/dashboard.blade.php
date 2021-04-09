@@ -32,11 +32,15 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p class="text-2xl font-medium font-bold">Reserveringen voor {{ $restaurant->name }}
                         op {{date('d-m-Y', strtotime($date))}}</p>
-                    @forelse($reservations as $reservation)
-                        <p>{{$reservation->time}}</p>
+                    <p class="text-gray-500 font-bold">Geopend van {{date("H:i", strtotime($open_time))}}
+                        tot {{date("H:i", strtotime($close_time))}}</p>
+                    @forelse($timestamps as $timestamp)
+                        <p><strong>{{date("H:i", strtotime($timestamp->time))}}:</strong>
+                            {{$reservations->where("time", "=", $timestamp->time)->count()}}
+                            reserveringen</p>
                     @empty
                         <p>Dit restaurant heeft voor vandaag geen reserveringen.</p>
-                    @endforelse
+                    @endif
                 </div>
             </div>
         </div>

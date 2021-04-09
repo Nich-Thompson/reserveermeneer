@@ -47,8 +47,8 @@ class ReserveRestaurantRequest extends FormRequest
 
             $restaurant = Restaurant::find($this->id);
 
-            $open_time = (new \App\Helper\Helper)->get_restaurant_opening_time($this->date, $restaurant);
-            $close_time = (new \App\Helper\Helper)->get_restaurant_closing_time($this->date, $restaurant);
+            $open_time = strtotime((new \App\Helper\Helper)->get_restaurant_opening_time($this->date, $restaurant));
+            $close_time = strtotime((new \App\Helper\Helper)->get_restaurant_closing_time($this->date, $restaurant));
 
             if ($unixtime < $open_time) {
                 $validator->errors()->add('field', 'Het restaurant opent pas om ' . date("H:i", $open_time) . ", dit ligt na het gekozen tijdstip.");
