@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReserveRestaurantRequest;
+use App\Mail\RestaurantEmail;
 use App\Models\Restaurant;
 use App\Models\RestaurantReservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class RestaurantController extends Controller
 {
@@ -59,6 +61,15 @@ class RestaurantController extends Controller
             "city" => $request->city,
             "waiting_list" => $add_to_waiting_list,
         ]);
+
+        $restaurant = Restaurant::find($id);
+
+        $data = ['subject' => 'Reservering ontvangen', "restaurant" => $restaurant,
+            "firstname" => $request->firstname, "lastname" => $request->lastname, "email" => $request->email,
+            "date" => $request->date, "time" => $request->time,
+            "waiting_list" => $add_to_waiting_list];
+
+        Mail::to($request->email)->send(new RestaurantEmail($data));
 
         return redirect('/restaurants')->with('status', "Bedankt voor je reservering op " . $request->date . " om " . $request->time . "!");
     }
