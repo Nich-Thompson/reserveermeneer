@@ -99,7 +99,8 @@ class RestaurantController extends Controller
 
         $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->get();
 
-        $timestamps = \App\Models\RestaurantReservation::select("time")->where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->distinct()->get();
+        $timestamps = \App\Models\RestaurantReservation::select("time")->where("restaurant_id", "=", $restaurant->id)->
+        where("date", "=", $date)->distinct()->orderBy("time")->get();
 
         return view('dashboard', ["restaurants" => $restaurants, "reservations" => $reservations,
             "restaurant" => $restaurant, "date" => $date, "open_time" => $open_time, "close_time" => $close_time,
