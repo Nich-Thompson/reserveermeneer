@@ -12,12 +12,8 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     Welkom bij ReserveerMeneer!
                 </div>
-
-                <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                    Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                </div>
             </div>
         </div>
     </div>
-</html>
+    </html>
 </x-app-layout>
