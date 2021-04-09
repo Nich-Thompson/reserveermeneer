@@ -15,7 +15,7 @@ class EventSeeder extends Seeder
     public function run()
     {
         Event::create([
-            'title' => 'Ballonnenbrigade',
+            'name' => 'Ballonnenbrigade',
             'description' => 'Dit jaarlijkse feest is 1 dag vol pret in het thema van ballonnen.',
             'price' => '5.00',
             'max_tickets' => '100',
@@ -26,7 +26,7 @@ class EventSeeder extends Seeder
         ]);
 
         Event::create([
-            'title' => 'Optreden van de Beatles (coverband)',
+            'name' => 'Optreden van de Beatles (coverband)',
             'description' => 'Luister 2 dagen naar deze mannen hun geweldige performance.',
             'price' => '10.00',
             'max_tickets' => '100',
@@ -37,7 +37,7 @@ class EventSeeder extends Seeder
         ]);
 
         Event::create([
-            'title' => 'Paarspop',
+            'name' => 'Paarspop',
             'description' => 'Dit festival is een week vol met geweldige muziek.',
             'price' => '15.00',
             'max_tickets' => '100',

@@ -21,7 +21,7 @@
                         <div class="d-flex flex-column w-50">
                             {{--only events have max_tickets--}}
                             @if($activity['max_tickets'] ?? null)
-                                <b>Evenement: {{ $activity['title'] }}</b><br>
+                                <b>Evenement: {{ $activity['name'] }}</b><br>
                                 {{ $activity['description'] }}<br>
                                 <b>Locatie: </b>{{ $activity['address'] }}, {{ $activity['city'] }}<br>
                                 <b>Van: </b>{{ date("d-m H:i", strtotime($activity['start_date'])) }} <b>Tot: </b>{{ date("d-m H:i", strtotime($activity['end_date'])) }}
@@ -44,7 +44,7 @@
 {{--                @foreach($events as $event)--}}
 {{--                    <div class="p-6 bg-white border-b border-gray-200">--}}
 {{--                        <div class="d-flex flex-column w-50">--}}
-{{--                            <b>{{ $event->title }}</b><br>--}}
+{{--                            <b>{{ $event->name }}</b><br>--}}
 {{--                            {{ $event->description }}<br>--}}
 {{--                            <b>Van: </b>{{ date("d-m H:i", strtotime($event->start_date)) }} <b>Tot: </b>{{ date("d-m H:i", strtotime($event->end_date)) }}--}}
 {{--                        </div>--}}

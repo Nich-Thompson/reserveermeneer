@@ -62,7 +62,7 @@ class EventController extends Controller
     public function store(StoreEventRequest $request)
     {
         Event::create([
-            'title' => $request->input('title'),
+            'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'max_tickets' => $request->input('max_tickets'),
@@ -90,7 +90,7 @@ class EventController extends Controller
     public function update($id, UpdateEventRequest $request)
     {
         $event = Event::find($id);
-        $event->title = $request->input('title');
+        $event->name = $request->input('name');
         $event->description = $request->input('description');
         $event->price = $request->input('price');
         $event->max_tickets = $request->input('max_tickets');

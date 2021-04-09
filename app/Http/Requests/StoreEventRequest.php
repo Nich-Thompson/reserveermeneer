@@ -25,7 +25,7 @@ class StoreEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'name' => 'required',
             'description' => 'required',
             'price' => 'required|gt:0',
             'max_tickets' => 'required|gt:0',
@@ -37,7 +37,7 @@ class StoreEventRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Titel mag niet leeg zijn.',
+            'name.required' => 'Naam mag niet leeg zijn.',
             'description.required' => 'Beschrijving mag niet leeg zijn.',
             'max_tickets.required' => 'Max. tickets mag niet leeg zijn.',
             'price.required' => 'Prijs mag niet leeg zijn.',

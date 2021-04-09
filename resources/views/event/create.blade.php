@@ -24,7 +24,7 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div class="col-span-1">
                                 <div class="form-group">
-                                    <input type="text" name="title" class="form-control w-full" placeholder="Titel" value="{{ old('title') }}">
+                                    <input type="text" name="name" class="form-control w-full" placeholder="Titel" value="{{ old('name') }}">
                                 </div>
                             </div>
                             <div class="col-span-2">

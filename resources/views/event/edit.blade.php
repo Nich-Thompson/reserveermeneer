@@ -25,11 +25,11 @@
                             <div class="col-span-1">
                                 <label>Titel</label>
                                 <div class="form-group">
-                                    <input type="text" name="title" class="form-control w-full"
-                                           @if(old('title') != null)
-                                           value="{{ old('title') }}"
+                                    <input type="text" name="name" class="form-control w-full"
+                                           @if(old('name') != null)
+                                           value="{{ old('name') }}"
                                            @else
-                                           value="{{ $event->title }}"
+                                           value="{{ $event->name }}"
                                         @endif>
                                 </div>
                             </div>
