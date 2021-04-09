@@ -22,6 +22,8 @@ class CreateEventsTable extends Migration
             $table->integer('max_tickets');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
+            $table->string('address');
+            $table->string('city');
             $table->timestamps();
         });
     }

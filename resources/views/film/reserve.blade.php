@@ -63,11 +63,11 @@
                                                 }}</span>
                                             @if($seat->occupied == false)
                                                 <div class="col-span-1 outline-black hover:bg-gray-300 bg-green-100 cursor-pointer" id="{{ $seat->id }}" onclick="select( {{ $seat->id }} )">
-                                                    Beschikbaar
+                                                    O
                                                 </div>
                                             @else
                                                 <div class="col-span-1 outline-black bg-red-300" id="{{ $seat->id }}">
-                                                    Bezet
+                                                    X
                                                 </div>
                                             @endif
                                         @endfor

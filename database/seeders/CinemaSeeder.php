@@ -22,10 +22,14 @@ class CinemaSeeder extends Seeder
     {
         //
         Cinema::create([
-            'name' => 'Pastei'
+            'name' => 'Pastei',
+            'address' => 'Pieter Vreedeplein 174',
+            'city' => 'Tilburg',
         ]);
         Cinema::create([
-            'name' => 'Filmorama'
+            'name' => 'Filmorama',
+            'address' => 'Hannie Dankbaarpassage 12',
+            'city' => 'Amsterdam',
         ]);
 
         Hall::create([

@@ -15,6 +15,7 @@
                         <b>Van:</b> {{ $film->start_date }}<br>
                         <b>Tot:</b> {{ $film->end_date }}<br>
                         <b>Bioscoop:</b> {{ $cinema->name }}<br>
+                        <b>Locatie:</b> {{ $cinema->address }}, {{ $cinema->city }}
                     </div>
 
                     <div class=" text-left">

@@ -15,6 +15,7 @@
                         <b>Tot:</b> {{ $event->end_date }}<br>
                         <b>Prijs:</b> {{ $event->price }} euro<br>
                         <b>Max. aantal tickets:</b> {{ $event->max_tickets }}<br>
+                        <b>Locatie:</b> {{ $event->address }}, {{ $event->city }}<br>
                     </div>
 
                     <div class=" text-left">

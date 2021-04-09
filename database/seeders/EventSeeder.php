@@ -21,6 +21,8 @@ class EventSeeder extends Seeder
             'max_tickets' => '100',
             'start_date' => '2021-07-01 09:00:00',
             'end_date' => '2021-07-01 19:00:00',
+            'address' => 'Hildebrandstraat 12',
+            'city' => 'Den Bosch',
         ]);
 
         Event::create([
@@ -30,15 +32,19 @@ class EventSeeder extends Seeder
             'max_tickets' => '100',
             'start_date' => '2021-06-01 16:00:00',
             'end_date' => '2021-06-03 22:00:00',
+            'address' => 'Titaniumstraat 14',
+            'city' => 'Nederweert',
         ]);
 
         Event::create([
-            'title' => 'Paaspop',
+            'title' => 'Paarspop',
             'description' => 'Dit festival is een week vol met geweldige muziek.',
             'price' => '15.00',
             'max_tickets' => '100',
             'start_date' => '2021-05-02 12:00:00',
             'end_date' => '2021-05-09 18:00:00',
+            'address' => 'Hoefstraat 6',
+            'city' => 'Tilburg',
         ]);
 
 

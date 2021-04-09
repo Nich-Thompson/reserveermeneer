@@ -6,9 +6,11 @@ use App\Http\Requests\ReserveEventRequest;
 use App\Http\Requests\ReserveEventRequestEnglish;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Cinema;
 use App\Models\Event;
 use App\Models\Film;
 use App\Models\EventReservation;
+use App\Models\Hall;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -20,8 +22,22 @@ class EventController extends Controller
     {
         $events =Event::all();
         $films = Film::all();
-        $activities = array_merge($events->toArray(), $films->toArray());
-//        dd($activities);
+        $filmArray = $films->toArray();
+        $newFilmArray = array();
+
+        // for each film, add the appropriate cinema data
+        foreach ($filmArray as $film) {
+            $hall = Hall::find($film['hall_id']);
+            $cinema = Cinema::find($hall->cinema_id);
+            $film['cinema_name'] = $cinema->name;
+            $film['city'] = $cinema->city;
+            array_push($newFilmArray, $film);
+        }
+
+        $activities = array_merge($events->toArray(), $newFilmArray);
+
+        // order by location
+
         return view('event.index', [
             'activities' => $activities,
         ]);
