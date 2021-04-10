@@ -74,7 +74,7 @@ class ReserveFilmRequest extends FormRequest
             $previousFilms = Film::query()->whereIn('id', array_column($previousReservations->toArray(), 'film_id'))->get()->toArray();
 
             $newFilm = Film::where('id', $this->id)->first();
-//dd($previousFilms);
+
             foreach ($previousFilms as $film) {
                 $oldStartDate = strtotime($film['start_date']);
                 $oldEndDate = strtotime($film['end_date']);
@@ -87,33 +87,7 @@ class ReserveFilmRequest extends FormRequest
                 {
                     $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.');
                 }
-//                if (
-//                    ($newStartDate > $oldStartDate && $newStartDate < $oldEndDate))
-//                {
-//                    $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.1');
-//                }
-//                if (
-//
-//                    ($newEndDate > $oldStartDate && $newEndDate < $oldEndDate) )
-//                {
-//                    $validator->errors()->add('field',  $oldEndDate);
-//                }
-//                if (
-//
-//                    ($newStartDate < $oldStartDate && $newEndDate > $oldEndDate))
-//                {
-//                    $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.3');
-//                }
             }
-
-//
-//            if ($previousReservations->contains(
-//                FilmReservation::query()->where([
-//                    []
-//                ])
-//            )) {
-//                $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.');
-//            }
         });
     }
 }

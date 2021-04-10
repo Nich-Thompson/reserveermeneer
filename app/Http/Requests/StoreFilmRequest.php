@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Film;
 use App\Models\Hall;
 use DateTime;
 use Illuminate\Foundation\Http\FormRequest;
@@ -53,6 +54,15 @@ class StoreFilmRequest extends FormRequest
             $hall = Hall::find($this->hall_id);
             if (!$hall) {
                 $validator->errors()->add('field', 'Deze hal bestaat niet.');
+            }
+
+            // check if hall doesnt have 3 films for this date already
+            $filmDate = Date('Y-m-d', strtotime($this->start_date));
+            $filmsOnDate = Film::query()->where([
+                ['hall_id', '=', $this->hall_id]
+            ])->whereDate('start_date', '=', $filmDate)->get()->count();
+            if ($filmsOnDate >= 3) {
+                $validator->errors()->add('field', 'Er mogen maar 3 films per dag in 1 zaal gespeeld worden.');
             }
 
             if ($this->start_date > $this->end_date) {
