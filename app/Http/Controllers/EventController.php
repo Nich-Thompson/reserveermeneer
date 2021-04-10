@@ -27,9 +27,6 @@ class EventController extends Controller
         $location = array_column($activities, 'city');
         $start_time = array_column($activities, 'start_date');
 
-//        if ($request->name) {
-//
-//        } else
         if ($request->location_sort) {
             array_multisort($location, SORT_ASC, $activities);
         } elseif ($request->start_time_sort) {
@@ -63,11 +60,19 @@ class EventController extends Controller
         $activities = array_merge($events->toArray(), $newFilmArray);
 
         if ($request->location) {
-//            dd($request);
+            $filterBy = $request->location;
+
+            $activities = array_filter($activities, function ($var) use ($filterBy) {
+                return ($var['city'] == $filterBy);
+            });
+        }
+        if ($request->start_time) {
+
         }
 
         return $activities;
     }
+
 
     public function show($id)
     {
