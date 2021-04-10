@@ -25,12 +25,15 @@ class EventController extends Controller
         // order by name
         $name = array_column($activities, 'name');
         $location = array_column($activities, 'city');
+        $start_time = array_column($activities, 'start_date');
 
 //        if ($request->name) {
 //
 //        } else
-        if ($request->location) {
+        if ($request->location_sort) {
             array_multisort($location, SORT_ASC, $activities);
+        } elseif ($request->start_time_sort) {
+            array_multisort($start_time, SORT_ASC, $activities);
         } else {
             // standard is order by name
             array_multisort($name, SORT_ASC, $activities);
@@ -59,7 +62,7 @@ class EventController extends Controller
 
         $activities = array_merge($events->toArray(), $newFilmArray);
 
-        if ($request->city) {
+        if ($request->location) {
 //            dd($request);
         }
 

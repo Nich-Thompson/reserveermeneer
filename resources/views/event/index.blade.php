@@ -21,7 +21,7 @@
                     <div class="grid grid-cols-5 gap-10">
                         <div class="col-span-1">
                             Filter op: <b>Stad</b><br>
-                            <input type="text" name="city" class="form-control" placeholder="Stad">
+                            <input type="text" name="location" class="form-control" placeholder="Stad">
                         </div>
                         <div class="col-span-1">
                             <b>Starttijd</b><br>
@@ -36,8 +36,9 @@
                 <br>
                 <div class="text-left">
                     Sorteer op:
-                    <input type="submit" name="name" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Naam">
-                    <input type="submit" name="location" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Locatie">
+                    <input type="submit" name="name_sort" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Naam">
+                    <input type="submit" name="location_sort" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Locatie">
+                    <input type="submit" name="start_time_sort" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Starttijd">
                 </div>
             </form>
             <br>
