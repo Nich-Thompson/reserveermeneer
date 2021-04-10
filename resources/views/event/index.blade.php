@@ -15,11 +15,31 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="text-left">
-                Sorteer op:
-                <a href="{{ route('getEventIndex') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow">Naam</a>
-                <a href="{{ route('getFilmCreate') }}" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow">Locatie</a>
-            </div>
+            <form action="{{ route('getEventIndex') }}" method="GET">
+                @csrf
+                <div class="text-left">
+                    <div class="grid grid-cols-5 gap-10">
+                        <div class="col-span-1">
+                            Filter op: <b>Stad</b><br>
+                            <input type="text" name="city" class="form-control" placeholder="Stad">
+                        </div>
+                        <div class="col-span-1">
+                            <b>Starttijd</b><br>
+                            <input type="datetime-local" name="start_time" class="form-control">
+                        </div>
+                        <div class="col-span-1">
+                            <b>Eindtijd</b><br>
+                            <input type="datetime-local" name="end_time" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="text-left">
+                    Sorteer op:
+                    <input type="submit" name="name" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Naam">
+                    <input type="submit" name="location" class="bg-white hover:bg-gray-100 text-gray-800 py-1.5 px-3 border border-gray-400 rounded shadow cursor-pointer" value="Locatie">
+                </div>
+            </form>
             <br>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 @foreach($activities as $activity)
