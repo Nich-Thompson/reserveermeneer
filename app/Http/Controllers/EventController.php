@@ -61,14 +61,27 @@ class EventController extends Controller
 
         if ($request->location) {
             $filterBy = $request->location;
-
             $activities = array_filter($activities, function ($var) use ($filterBy) {
-//                return ($var['city'] == $filterBy);
                 return str_contains(strtolower($var['city']), strtolower($filterBy));
             });
         }
         if ($request->start_time) {
-
+            $filterBy = $request->start_time;
+            $activities = array_filter($activities, function ($var) use ($filterBy) {
+                return ($var['start_date'] > $filterBy);
+            });
+        }
+        if ($request->end_time) {
+            $filterBy = $request->end_time;
+            $activities = array_filter($activities, function ($var) use ($filterBy) {
+                return ($var['end_date'] < $filterBy);
+//                dd($var['end_date']);
+//                $dateString = $var['end_date'];
+//                return (date_diff(
+//                    DateTime::createFromFormat('Y-m-d H:i:s', $dateString),
+//                    DateTime::createFromFormat('Y-m-d H:i:s', $filterBy))
+//                    < 0);
+            });
         }
 
         return $activities;
