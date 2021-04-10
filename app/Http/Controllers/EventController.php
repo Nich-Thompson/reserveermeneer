@@ -63,7 +63,8 @@ class EventController extends Controller
             $filterBy = $request->location;
 
             $activities = array_filter($activities, function ($var) use ($filterBy) {
-                return ($var['city'] == $filterBy);
+//                return ($var['city'] == $filterBy);
+                return str_contains(strtolower($var['city']), strtolower($filterBy));
             });
         }
         if ($request->start_time) {
