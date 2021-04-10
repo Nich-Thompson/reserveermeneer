@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Film;
+use App\Models\FilmReservation;
 use App\Models\FilmSeat;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -50,14 +52,68 @@ class ReserveFilmRequest extends FormRequest
     public function withValidator($validator)
     {
         $validator->after(function ($validator) {
+            // check if seat is unoccupied
             $filmSeat = FilmSeat::query()->where([
                 ['id', '=', $this->seat_id],
                 ['occupied', '=', '1']
             ])->first();
-            
+
             if ($filmSeat) {
                 $validator->errors()->add('field', 'Deze stoel is al bezet.');
             }
+
+            // check if user does not already have a film reservation for this time
+            $previousReservations = FilmReservation::query()->where([
+                ['name', '=', $this->name],
+                ['email', '=', $this->email],
+                ['address', '=', $this->address],
+                ['postal_code', '=', $this->postal_code],
+                ['city', '=', $this->city]
+            ])->get();
+
+            $previousFilms = Film::query()->whereIn('id', array_column($previousReservations->toArray(), 'film_id'))->get()->toArray();
+
+            $newFilm = Film::where('id', $this->id)->first();
+//dd($previousFilms);
+            foreach ($previousFilms as $film) {
+                $oldStartDate = strtotime($film['start_date']);
+                $oldEndDate = strtotime($film['end_date']);
+                $newStartDate = strtotime($newFilm->start_date);
+                $newEndDate = strtotime($newFilm->end_date);
+                if (
+                    ($newStartDate > $oldStartDate && $newStartDate < $oldEndDate) ||
+                    ($newEndDate > $oldStartDate && $newStartDate < $oldEndDate) ||
+                    ($newStartDate < $oldStartDate && $newEndDate > $oldEndDate))
+                {
+                    $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.');
+                }
+//                if (
+//                    ($newStartDate > $oldStartDate && $newStartDate < $oldEndDate))
+//                {
+//                    $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.1');
+//                }
+//                if (
+//
+//                    ($newEndDate > $oldStartDate && $newEndDate < $oldEndDate) )
+//                {
+//                    $validator->errors()->add('field',  $oldEndDate);
+//                }
+//                if (
+//
+//                    ($newStartDate < $oldStartDate && $newEndDate > $oldEndDate))
+//                {
+//                    $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.3');
+//                }
+            }
+
+//
+//            if ($previousReservations->contains(
+//                FilmReservation::query()->where([
+//                    []
+//                ])
+//            )) {
+//                $validator->errors()->add('field', 'Je hebt al een reservatie binnen deze tijd.');
+//            }
         });
     }
 }

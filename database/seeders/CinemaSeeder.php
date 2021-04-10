@@ -75,7 +75,7 @@ class CinemaSeeder extends Seeder
             'hall_id' => '1',
             'name' => 'Volledig Metalen Jas',
             'description' => 'Deze klassieke oorlogsfilm toont de nasleep van de oorlog in Vietnam.',
-            'start_date' => '2021-06-01 12:00:00',
+            'start_date' => '2021-06-01 11:00:00',
             'end_date' => '2021-06-01 13:40:00'
         ]);
         Film::create([
