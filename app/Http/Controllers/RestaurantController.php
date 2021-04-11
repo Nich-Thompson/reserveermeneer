@@ -94,59 +94,16 @@ class RestaurantController extends Controller
 
         $restaurants = \App\Models\Restaurant::all();
 
+        $open_time = (new \App\Helper\Helper)->get_restaurant_opening_time($date, $restaurant);
+        $close_time = (new \App\Helper\Helper)->get_restaurant_closing_time($date, $restaurant);
+
         $reservations = \App\Models\RestaurantReservation::where("restaurant_id", "=", $restaurant->id)->where("date", "=", $date)->get();
 
+        $timestamps = \App\Models\RestaurantReservation::select("time")->where("restaurant_id", "=", $restaurant->id)->
+        where("date", "=", $date)->distinct()->orderBy("time")->get();
+
         return view('dashboard', ["restaurants" => $restaurants, "reservations" => $reservations,
-            "restaurant" => $restaurant, "date" => $date]);
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Restaurant $restaurant
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Restaurant $restaurant)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\Restaurant $restaurant
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Restaurant $restaurant)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Restaurant $restaurant
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Restaurant $restaurant)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Restaurant $restaurant
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Restaurant $restaurant)
-    {
-        //
+            "restaurant" => $restaurant, "date" => $date, "open_time" => $open_time, "close_time" => $close_time,
+            "timestamps" => $timestamps]);
     }
 }
