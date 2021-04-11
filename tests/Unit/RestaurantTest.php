@@ -14,6 +14,11 @@ class RestaurantTest extends TestCase
         parent::setUp();
     }
 
+    /**
+     * @dataProvider provideValidData
+     *
+     */
+
     public function test_valid_firstname(array $data)
     {
         $request = new ReserveRestaurantRequest();
