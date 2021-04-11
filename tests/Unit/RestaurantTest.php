@@ -47,7 +47,7 @@ class RestaurantTest extends TestCase
                 "lastname" => $faker->lastName,
                 "email" => $faker->email,
                 "address" => $faker->address,
-                "postal_code" => $faker->postcode,
+                "postal_code" => '6031NV',
                 "city" => $faker->word,
             ]],
         ];
