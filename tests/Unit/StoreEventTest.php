@@ -54,6 +54,46 @@ class StoreEventTest extends TestCase
     }
 
     /**
+     * @dataProvider provideInvalidPrice
+     *
+     */
+    public function test_invalid_price(array $data)
+    {
+        $request = new StoreEventRequest();
+        $validator = Validator::make($data, $request->rules());
+
+        $this->assertTrue($validator->fails());
+    }
+
+    public function provideInvalidPrice(): array
+    {
+        $faker = Factory::create(Factory::DEFAULT_LOCALE);
+
+        return [
+            [[
+                "name" => "Feest",
+                "description" => 'Een groot feest.',
+                "price" => '5.75',
+                "max_tickets" => '0',
+                "start_date" => '12-06-2050', //
+                "end_date" => '02-06-2050',
+                "address" => 'Straatnaamstraat 1',
+                "city" => 'Stad',
+            ]],
+            [[
+                "name" => $faker->title,
+                "description" => $faker->sentence,
+                "price" => '0',
+                "max_tickets" => $faker->randomDigit + 1,
+                "start_date" => '12-06-2050',
+                "end_date" => '02-06-2050',
+                "address" => $faker->address,
+                "city" => $faker->word,
+            ]],
+        ];
+    }
+
+    /**
      * @dataProvider provideInvalidDate
      *
      */
