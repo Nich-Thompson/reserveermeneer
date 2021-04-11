@@ -1,0 +1,1159 @@
+{
+  "id": "0aff09ee-0d99-4dda-84f3-5e7844044352",
+  "version": "2.0",
+  "name": "reserveermeneer",
+  "url": "http://127.0.0.1:8000",
+  "tests": [{
+    "id": "367b02e7-02f1-47a3-82cd-96e3be74a2cd",
+    "name": "LogInOut",
+    "commands": [{
+      "id": "b0998bca-9fd9-4301-bcb7-23df74a8f470",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9855755-1ad3-4c1c-9a6c-8179232b8cbb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "982x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa311773-bf8d-4b96-afbd-580a547a749f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log in",
+      "targets": [
+        ["linkText=Log in", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log in')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "256e46cb-9514-475b-a897-a59c9a63b613",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=.min-h-screen",
+      "targets": [
+        ["css=.min-h-screen", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": "135,474"
+    }, {
+      "id": "7f4f19c4-d0cb-4a70-9794-16d7e50b6e72",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=.min-h-screen",
+      "targets": [
+        ["css=.min-h-screen", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": "135,474"
+    }, {
+      "id": "468a19c9-9a2c-4544-bb4b-0f486afa4fa5",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=.min-h-screen",
+      "targets": [
+        ["css=.min-h-screen", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": "135,474"
+    }, {
+      "id": "d71213dd-aabf-47c7-8c6a-66cf9ff46b84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.min-h-screen",
+      "targets": [
+        ["css=.min-h-screen", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5980bcc-b306-4c7b-a69e-d6e25454a070",
+      "comment": "",
+      "command": "click",
+      "target": "css=.px-4",
+      "targets": [
+        ["css=.px-4", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "820960a8-a4fc-41b0-baa4-320ffd79a116",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log uit",
+      "targets": [
+        ["linkText=Log uit", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log uit')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log uit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6e631dea-0167-4fac-9c09-1559a31d3a5a",
+    "name": "CreateUpdateDeleteEvent",
+    "commands": [{
+      "id": "cac85e7a-d86e-492c-bcbf-984577519a67",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3b017afa-d72d-42ae-9152-59f684d4e032",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "982x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f434408-7799-4695-8040-4233a9edaa35",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log in",
+      "targets": [
+        ["linkText=Log in", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log in')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7e0c4db-bee2-40a6-a4f9-0136a1543b3e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.px-4",
+      "targets": [
+        ["css=.px-4", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8712c9f2-c55e-4ff5-862b-f3722e1ce0d4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenementen en Films",
+      "targets": [
+        ["linkText=Evenementen en Films", "linkText"],
+        ["css=.inline-flex:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen en Films')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films']", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Evenementen en Films')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "52f17936-d4c7-42d6-8985-c8f63881ace6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=+Evenement aanmaken",
+      "targets": [
+        ["linkText=+Evenement aanmaken", "linkText"],
+        ["css=.row-auto .bg-white:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'+Evenement aanmaken')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/evenement-aanmaken']", "xpath:href"],
+        ["xpath=//header/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'+Evenement aanmaken')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "141f5914-bbf1-4d58-abc8-1a94728f1863",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ca35490-44dd-4e7f-a66a-76dea5ad4717",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "titel"
+    }, {
+      "id": "f3a17a41-3587-45ac-ac7e-0bbf67ab4648",
+      "comment": "",
+      "command": "type",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=.col-span-2 .form-control", "css:finder"],
+        ["xpath=//input[@name='description']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "beschrijving"
+    }, {
+      "id": "74401f55-805f-4885-b8e6-2f7c98cfd2db",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7ef0a08-1af7-471b-b39e-bc59f0f098cc",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "0titel"
+    }, {
+      "id": "cce5a65d-5c16-46ca-88b2-f48156475488",
+      "comment": "",
+      "command": "click",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c3916eb-776d-4db6-81d5-8249149cc9d5",
+      "comment": "",
+      "command": "click",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=.col-span-2 .form-control", "css:finder"],
+        ["xpath=//input[@name='description']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e4bf0c3-ba2b-4858-a361-59dfd9aa6619",
+      "comment": "",
+      "command": "type",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=.col-span-2 .form-control", "css:finder"],
+        ["xpath=//input[@name='description']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "0beschrijving"
+    }, {
+      "id": "24922b34-51e1-43b9-a90f-bbe84cac016f",
+      "comment": "",
+      "command": "click",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "000b1092-c1ac-402a-89d5-0654fbcb3345",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "adres"
+    }, {
+      "id": "fe1f18f0-3097-40af-93c2-5fa6e83aed50",
+      "comment": "",
+      "command": "type",
+      "target": "name=city",
+      "targets": [
+        ["name=city", "name"],
+        ["css=.col-span-1:nth-child(4) .form-control", "css:finder"],
+        ["xpath=//input[@name='city']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "stad"
+    }, {
+      "id": "fb50dfac-c3bd-4b61-9a0a-289e9de4596d",
+      "comment": "",
+      "command": "type",
+      "target": "name=max_tickets",
+      "targets": [
+        ["name=max_tickets", "name"],
+        ["css=.col-span-1:nth-child(5) .form-control", "css:finder"],
+        ["xpath=//input[@name='max_tickets']", "xpath:attributes"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "7e3fac15-cb97-43c2-9120-2ba519beee81",
+      "comment": "",
+      "command": "type",
+      "target": "name=price",
+      "targets": [
+        ["name=price", "name"],
+        ["css=.col-span-1:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='price']", "xpath:attributes"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": "10"
+    }, {
+      "id": "5b521b41-6d84-4708-a5a7-038e330dc08d",
+      "comment": "",
+      "command": "click",
+      "target": "name=start_date",
+      "targets": [
+        ["name=start_date", "name"],
+        ["css=.col-span-1:nth-child(7) .form-control", "css:finder"],
+        ["xpath=//input[@name='start_date']", "xpath:attributes"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4d70a0e-7612-49d1-9e4c-f095717b329b",
+      "comment": "",
+      "command": "type",
+      "target": "name=start_date",
+      "targets": [
+        ["name=start_date", "name"],
+        ["css=.col-span-1:nth-child(7) .form-control", "css:finder"],
+        ["xpath=//input[@name='start_date']", "xpath:attributes"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": "2021-05-11T16:34"
+    }, {
+      "id": "5f1ec2d9-16b5-4ae2-8a75-7fc93d67441e",
+      "comment": "",
+      "command": "click",
+      "target": "name=end_date",
+      "targets": [
+        ["name=end_date", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='end_date']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4cc9a8d2-0728-4eb1-b2ad-e72ddc60ac75",
+      "comment": "",
+      "command": "type",
+      "target": "name=end_date",
+      "targets": [
+        ["name=end_date", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='end_date']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": "2021-05-11T17:34"
+    }, {
+      "id": "e46442de-9996-4378-8cae-0b6379548829",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right > .bg-white",
+      "targets": [
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[10]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Aanmaken')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "05f53e53-6db6-430f-8b7a-f004daca33b0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=+Info",
+      "targets": [
+        ["linkText=+Info", "linkText"],
+        ["css=.p-6:nth-child(1) .bg-white", "css:finder"],
+        ["xpath=//a[contains(text(),'+Info')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/5/evenement-details']", "xpath:href"],
+        ["xpath=//div/div/div/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'+Info')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "15f0cbc7-82bb-4108-b055-5d502aba1abc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Bewerken",
+      "targets": [
+        ["linkText=Bewerken", "linkText"],
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//a[contains(text(),'Bewerken')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/5/evenement-edit']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Bewerken')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c765e7d-e20b-49eb-a01e-1c3d571cc96f",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d0b312d-3eb5-4427-8cc9-c69ed3472adb",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "0titel1"
+    }, {
+      "id": "1f5db1b9-3bdd-4d23-9bef-33b50db8ad65",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-span-2",
+      "targets": [
+        ["css=.col-span-2", "css:finder"],
+        ["xpath=//form/div/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c3250ce-efd6-4e03-bc11-0fa55f28d274",
+      "comment": "",
+      "command": "click",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=.col-span-2 .form-control", "css:finder"],
+        ["xpath=//input[@name='description']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4727c77-27df-47fd-9759-c8a5ccc77e81",
+      "comment": "",
+      "command": "type",
+      "target": "name=description",
+      "targets": [
+        ["name=description", "name"],
+        ["css=.col-span-2 .form-control", "css:finder"],
+        ["xpath=//input[@name='description']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "0beschrijving1"
+    }, {
+      "id": "4802ffaa-1c9f-4166-b7e0-48b79f9bc8de",
+      "comment": "",
+      "command": "click",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(4) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "953b8af7-d766-4f34-b2cc-71adcb654c95",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(4) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[4]/div/input", "xpath:position"]
+      ],
+      "value": "adres1"
+    }, {
+      "id": "76885dfe-6463-4605-8837-2f6129f707f7",
+      "comment": "",
+      "command": "click",
+      "target": "name=city",
+      "targets": [
+        ["name=city", "name"],
+        ["css=.col-span-1:nth-child(5) .form-control", "css:finder"],
+        ["xpath=//input[@name='city']", "xpath:attributes"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e6f80ca2-253d-4254-b222-ae1a7a16e602",
+      "comment": "",
+      "command": "type",
+      "target": "name=city",
+      "targets": [
+        ["name=city", "name"],
+        ["css=.col-span-1:nth-child(5) .form-control", "css:finder"],
+        ["xpath=//input[@name='city']", "xpath:attributes"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "stad1"
+    }, {
+      "id": "f3ddd682-1067-405b-9fef-2a85cd1f093a",
+      "comment": "",
+      "command": "click",
+      "target": "name=max_tickets",
+      "targets": [
+        ["name=max_tickets", "name"],
+        ["css=.col-span-1:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='max_tickets']", "xpath:attributes"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66d39808-ab78-4eda-91bd-c2231ba7687e",
+      "comment": "",
+      "command": "type",
+      "target": "name=max_tickets",
+      "targets": [
+        ["name=max_tickets", "name"],
+        ["css=.col-span-1:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='max_tickets']", "xpath:attributes"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": "101"
+    }, {
+      "id": "a79d2487-88f8-45cd-bbec-3545ef8fb854",
+      "comment": "",
+      "command": "click",
+      "target": "name=price",
+      "targets": [
+        ["name=price", "name"],
+        ["css=.col-span-1:nth-child(7) .form-control", "css:finder"],
+        ["xpath=//input[@name='price']", "xpath:attributes"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a0df9e1-0d9c-4e64-8a9a-5e48f4c16994",
+      "comment": "",
+      "command": "type",
+      "target": "name=price",
+      "targets": [
+        ["name=price", "name"],
+        ["css=.col-span-1:nth-child(7) .form-control", "css:finder"],
+        ["xpath=//input[@name='price']", "xpath:attributes"],
+        ["xpath=//div[7]/div/input", "xpath:position"]
+      ],
+      "value": "101"
+    }, {
+      "id": "c67a14ae-c172-478f-90a4-0c5c1eabcc27",
+      "comment": "",
+      "command": "click",
+      "target": "name=start_date",
+      "targets": [
+        ["name=start_date", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='start_date']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "10ee4db8-f791-4ab5-be76-25a23ac77dee",
+      "comment": "",
+      "command": "type",
+      "target": "name=start_date",
+      "targets": [
+        ["name=start_date", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='start_date']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": "2021-05-12T16:34"
+    }, {
+      "id": "090f2917-cc7a-4f4c-91e7-447876ea2d32",
+      "comment": "",
+      "command": "click",
+      "target": "name=end_date",
+      "targets": [
+        ["name=end_date", "name"],
+        ["css=.col-span-1:nth-child(9) .form-control", "css:finder"],
+        ["xpath=//input[@name='end_date']", "xpath:attributes"],
+        ["xpath=//div[9]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a81f3ec-e13c-4f87-92c8-857eca653d19",
+      "comment": "",
+      "command": "type",
+      "target": "name=end_date",
+      "targets": [
+        ["name=end_date", "name"],
+        ["css=.col-span-1:nth-child(9) .form-control", "css:finder"],
+        ["xpath=//input[@name='end_date']", "xpath:attributes"],
+        ["xpath=//div[9]/div/input", "xpath:position"]
+      ],
+      "value": "2021-05-12T17:34"
+    }, {
+      "id": "778d806c-1b67-4c8c-bb9f-8a0f95b06302",
+      "comment": "",
+      "command": "click",
+      "target": "css=.py-12",
+      "targets": [
+        ["css=.py-12", "css:finder"],
+        ["xpath=//main/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ac3a9ed-92b1-43d2-9164-61cd4ce4d6e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right > .bg-white",
+      "targets": [
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[11]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Opslaan')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b28ab9b-8a21-4340-93b6-1d644e5366dd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=+Info",
+      "targets": [
+        ["linkText=+Info", "linkText"],
+        ["css=.p-6:nth-child(1) .bg-white", "css:finder"],
+        ["xpath=//a[contains(text(),'+Info')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/5/evenement-details']", "xpath:href"],
+        ["xpath=//div/div/div/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'+Info')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba921ec2-fbb0-4025-9e42-569aea0aa9ce",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Bewerken",
+      "targets": [
+        ["linkText=Bewerken", "linkText"],
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//a[contains(text(),'Bewerken')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/5/evenement-edit']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Bewerken')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3696cef-7d74-45c6-8d1c-ff22cd8ebf69",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Verwijderen",
+      "targets": [
+        ["linkText=Verwijderen", "linkText"],
+        ["css=.bg-red-500", "css:finder"],
+        ["xpath=//a[contains(text(),'Verwijderen')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/5/evenement-delete']", "xpath:href"],
+        ["xpath=//form/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Verwijderen')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4873337-b7b9-4d47-af1c-228a7319275f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-red-500",
+      "targets": [
+        ["css=.bg-red-500", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Delete')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c36a0817-a7fa-4f1d-a389-526eb9db3d64",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log uit",
+      "targets": [
+        ["linkText=Log uit", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log uit')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log uit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2953a562-74ee-45e7-a76c-891651d85c41",
+    "name": "ReserveFilm",
+    "commands": [{
+      "id": "82f1f1ea-99d6-42fa-9497-0f821305483d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d544e5f9-674e-4471-96b9-5464964f1019",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "982x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "89009465-a24f-464a-b18b-80193ae7505e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenementen en Films",
+      "targets": [
+        ["linkText=Evenementen en Films", "linkText"],
+        ["css=.px-1:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen en Films')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films']", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Evenementen en Films')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "265f5155-826f-4c4e-9315-05f0e0dd5686",
+      "comment": "",
+      "command": "click",
+      "target": "css=.p-6:nth-child(2) .bg-white",
+      "targets": [
+        ["css=.p-6:nth-child(2) .bg-white", "css:finder"],
+        ["xpath=(//a[contains(text(),'+Info')])[2]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/11/film-details']", "xpath:href"],
+        ["xpath=//div[2]/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "654ad06e-af6f-4501-9399-487655d777c3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Reserveren",
+      "targets": [
+        ["linkText=Reserveren", "linkText"],
+        ["css=.m-3", "css:finder"],
+        ["xpath=//a[contains(text(),'Reserveren')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/11/film-reserveer']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Reserveren')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebcfc970-234f-4f1e-b8fa-5d7c2ca43eff",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1534c6a-9542-47c4-8b5e-5a849f70be8a",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "naam"
+    }, {
+      "id": "6004cdd6-a284-4388-b1ee-f698d24b060e",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.col-span-1:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "email"
+    }, {
+      "id": "fbd1eb4b-eab0-4959-879c-29ea85a16f15",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "adres"
+    }, {
+      "id": "10979b43-4a79-4004-a7b7-806bbce62e6d",
+      "comment": "",
+      "command": "type",
+      "target": "name=postal_code",
+      "targets": [
+        ["name=postal_code", "name"],
+        ["css=.col-span-1:nth-child(5) .form-control", "css:finder"],
+        ["xpath=//input[@name='postal_code']", "xpath:attributes"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "AAAA11"
+    }, {
+      "id": "c6aa373b-1ed7-4950-ba7b-a8780ac2376f",
+      "comment": "",
+      "command": "type",
+      "target": "name=city",
+      "targets": [
+        ["name=city", "name"],
+        ["css=.col-span-1:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='city']", "xpath:attributes"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": "stad"
+    }, {
+      "id": "c50b5c6f-f82b-494b-9035-ac377e77a91e",
+      "comment": "",
+      "command": "click",
+      "target": "id=663",
+      "targets": [
+        ["id=663", "id"],
+        ["css=#\\36 63", "css:finder"],
+        ["xpath=//div[@id='663']", "xpath:attributes"],
+        ["xpath=//div[13]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "36661486-624e-476f-b869-302b1c6e181a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right > .bg-white",
+      "targets": [
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[10]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Reserveren')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9631d3a8-819b-4af2-aea7-3eb6727cf32e",
+    "name": "ExportEventReservation",
+    "commands": [{
+      "id": "3177aba7-cb6a-4ca6-b2d4-12b7ab2e2f7d",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bd7e01c3-ee2d-4c07-bd94-2ee2ba9f5bbd",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "982x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c4a3ed00-8774-4ab5-a5a0-d93e1ed1924b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenementen en Films",
+      "targets": [
+        ["linkText=Evenementen en Films", "linkText"],
+        ["css=.px-1:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementen en Films')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films']", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Evenementen en Films')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a47e16b7-5be7-434b-aa11-44d4ab553921",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=+Info",
+      "targets": [
+        ["linkText=+Info", "linkText"],
+        ["css=.p-6:nth-child(1) .bg-white", "css:finder"],
+        ["xpath=//a[contains(text(),'+Info')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/1/evenement-details']", "xpath:href"],
+        ["xpath=//div/div/div/div/div[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'+Info')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f02d9e77-12d1-450a-8edb-e866cf1dc497",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Reserveren (NL)",
+      "targets": [
+        ["linkText=Reserveren (NL)", "linkText"],
+        ["css=.m-3", "css:finder"],
+        ["xpath=//a[contains(text(),'Reserveren (NL)')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementen-films/1/evenement-reserveer']", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc4925ef-f3d5-4871-9ee0-012ff8fd96bb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.grid",
+      "targets": [
+        ["css=.grid", "css:finder"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "16a2ae4a-ec21-4712-a44b-5b507d329bbf",
+      "comment": "",
+      "command": "click",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29e75bce-1ab5-4139-8d09-19daf4949346",
+      "comment": "",
+      "command": "type",
+      "target": "name=name",
+      "targets": [
+        ["name=name", "name"],
+        ["css=.col-span-1:nth-child(1) .form-control", "css:finder"],
+        ["xpath=//input[@name='name']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "naam"
+    }, {
+      "id": "40b570f9-736d-41bc-a754-f415388ffca7",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.col-span-1:nth-child(2) .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div[2]/div/input", "xpath:position"]
+      ],
+      "value": "email"
+    }, {
+      "id": "4727f1ce-d5e5-46ff-97f9-cffb6c039dd2",
+      "comment": "",
+      "command": "type",
+      "target": "name=address",
+      "targets": [
+        ["name=address", "name"],
+        ["css=.col-span-1:nth-child(3) .form-control", "css:finder"],
+        ["xpath=//input[@name='address']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": "adres"
+    }, {
+      "id": "173df3e2-2bb3-4bae-88d2-a38694688a21",
+      "comment": "",
+      "command": "type",
+      "target": "name=postal_code",
+      "targets": [
+        ["name=postal_code", "name"],
+        ["css=.col-span-1:nth-child(5) .form-control", "css:finder"],
+        ["xpath=//input[@name='postal_code']", "xpath:attributes"],
+        ["xpath=//div[5]/div/input", "xpath:position"]
+      ],
+      "value": "AAAA11"
+    }, {
+      "id": "11d4bed6-da9e-4235-96cf-e1ba3b08810c",
+      "comment": "",
+      "command": "type",
+      "target": "name=city",
+      "targets": [
+        ["name=city", "name"],
+        ["css=.col-span-1:nth-child(6) .form-control", "css:finder"],
+        ["xpath=//input[@name='city']", "xpath:attributes"],
+        ["xpath=//div[6]/div/input", "xpath:position"]
+      ],
+      "value": "stad"
+    }, {
+      "id": "b83f005e-d669-47a2-a856-44c9fc808ea5",
+      "comment": "",
+      "command": "click",
+      "target": "name=ticket_number",
+      "targets": [
+        ["name=ticket_number", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='ticket_number']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9514d4d6-a5ab-46db-b546-6c4a6a7ce3d1",
+      "comment": "",
+      "command": "type",
+      "target": "name=ticket_number",
+      "targets": [
+        ["name=ticket_number", "name"],
+        ["css=.col-span-1:nth-child(8) .form-control", "css:finder"],
+        ["xpath=//input[@name='ticket_number']", "xpath:attributes"],
+        ["xpath=//div[8]/div/input", "xpath:position"]
+      ],
+      "value": "2"
+    }, {
+      "id": "3fb89e5b-09bb-4b77-8e8b-9f05cf7b0bf0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-gray-200",
+      "targets": [
+        ["css=.bg-gray-200", "css:finder"],
+        ["xpath=//div[10]/div/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Upload foto:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "522c55e1-aa67-4fe8-9e88-03c2a83b199f",
+      "comment": "",
+      "command": "type",
+      "target": "id=file",
+      "targets": [
+        ["id=file", "id"],
+        ["name=file", "name"],
+        ["css=#file", "css:finder"],
+        ["xpath=//input[@id='file']", "xpath:attributes"],
+        ["xpath=//div[10]/div/input", "xpath:position"]
+      ],
+      "value": "C:\\fakepath\\joker.png"
+    }, {
+      "id": "857b701c-cec8-4fca-920b-f36e7c8b2f77",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-right > .bg-white",
+      "targets": [
+        ["css=.text-right > .bg-white", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[12]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Reserveren')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bfeb2c1-565d-437c-83a7-78c62bbf35d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.py-12",
+      "targets": [
+        ["css=.py-12", "css:finder"],
+        ["xpath=//main/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae5b8dec-8af1-4b04-b613-fcecbb63dd0a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log in",
+      "targets": [
+        ["linkText=Log in", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log in')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log in')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0f89c3c-e053-45a6-a8ac-b7cf022f373c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.px-4",
+      "targets": [
+        ["css=.px-4", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e2814666-17f4-4f38-8e55-dc100806062d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Evenementreservaties",
+      "targets": [
+        ["linkText=Evenementreservaties", "linkText"],
+        ["css=.inline-flex:nth-child(4)", "css:finder"],
+        ["xpath=//a[contains(text(),'Evenementreservaties')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementreservaties']", "xpath:href"],
+        ["xpath=//a[4]", "xpath:position"],
+        ["xpath=//a[contains(.,'Evenementreservaties')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1ccd976-18bb-48d6-9e37-df3eacb8aea7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Export naar JSON",
+      "targets": [
+        ["linkText=Export naar JSON", "linkText"],
+        ["css=.border:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Export naar JSON')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/evenementreservaties/json']", "xpath:href"],
+        ["xpath=//header/div/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Export naar JSON')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3827495-7ff3-4385-8ef2-d781149e64ba",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log uit",
+      "targets": [
+        ["linkText=Log uit", "linkText"],
+        ["css=.text-gray-700", "css:finder"],
+        ["xpath=//a[contains(text(),'Log uit')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"event.preventDefault();\n                                                this.closest('form').submit();\"]", "xpath:attributes"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/logout']", "xpath:href"],
+        ["xpath=//form/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log uit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4b5f5df4-f57f-4573-9c66-38342d200e7d",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["367b02e7-02f1-47a3-82cd-96e3be74a2cd"]
+  }],
+  "urls": ["http://127.0.0.1:8000/"],
+  "plugins": []
+}

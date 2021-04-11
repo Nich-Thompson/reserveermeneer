@@ -43,10 +43,32 @@
                                 <label>Beschrijving</label>
                                 <div class="form-group">
                                     <input type="text" name="description" class="form-control w-full" placeholder="Beschrijving"
-                                            @if(old('description') != null)
-                                            value="{{ old('description') }}"
-                                            @else
-                                            value="{{ $event->description }}"
+                                           @if(old('description') != null)
+                                           value="{{ old('description') }}"
+                                           @else
+                                           value="{{ $event->description }}"
+                                        @endif>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <label>Adres</label>
+                                <div class="form-group">
+                                    <input type="text" name="address" class="form-control w-full" placeholder="Adres"
+                                           @if(old('address') != null)
+                                           value="{{ old('address') }}"
+                                           @else
+                                           value="{{ $event->address }}"
+                                        @endif>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <label>Stad</label>
+                                <div class="form-group">
+                                    <input type="text" name="city" class="form-control w-full" placeholder="Stad"
+                                           @if(old('city') != null)
+                                           value="{{ old('city') }}"
+                                           @else
+                                           value="{{ $event->city }}"
                                         @endif>
                                 </div>
                             </div>
