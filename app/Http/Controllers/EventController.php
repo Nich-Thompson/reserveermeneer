@@ -109,6 +109,8 @@ class EventController extends Controller
         Event::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
+            'address' => $request->input('address'),
+            'city' => $request->input('city'),
             'price' => $request->input('price'),
             'max_tickets' => $request->input('max_tickets'),
             'start_date' => $request->input('start_date'),
@@ -137,6 +139,8 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->name = $request->input('name');
         $event->description = $request->input('description');
+        $event->address = $request->input('address');
+        $event->city = $request->input('city');
         $event->price = $request->input('price');
         $event->max_tickets = $request->input('max_tickets');
 

@@ -34,6 +34,16 @@
                             </div>
                             <div class="col-span-1">
                                 <div class="form-group">
+                                    <input type="text" name="address" class="form-control w-full" placeholder="Adres" value="{{ old('address') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
+                                    <input type="text" name="city" class="form-control w-full" placeholder="Stad" value="{{ old('city') }}">
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="form-group">
                                     <input type="number" name="max_tickets" class="form-control w-full" placeholder="Max. aantal tickets" value="{{ old('max_tickets') }}">
                                 </div>
                             </div>

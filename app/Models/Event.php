@@ -16,5 +16,7 @@ class Event extends Model
         'max_tickets',
         'start_date',
         'end_date',
+        'address',
+        'city'
     ];
 }
