@@ -13,7 +13,10 @@ class RestaurantTest extends TestCase
     {
         parent::setUp();
     }
-
+    /**
+     * @dataProvider provideValidData
+     *
+     */
     public function test_valid_firstname(array $data)
     {
         $request = new ReserveRestaurantRequest();
@@ -45,7 +48,7 @@ class RestaurantTest extends TestCase
                 "email" => $faker->email,
                 "address" => $faker->address,
                 "postal_code" => $faker->postcode,
-                "city" => $faker->city,
+                "city" => $faker->word,
             ]],
         ];
     }
