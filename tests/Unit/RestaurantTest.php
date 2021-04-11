@@ -24,7 +24,6 @@ class RestaurantTest extends TestCase
         $validator = Validator::make($data, $request->rules());
 
         $this->assertTrue($validator->passes());
-//        $this->assertTrue(true);
     }
 
     public function provideValidData(): array
