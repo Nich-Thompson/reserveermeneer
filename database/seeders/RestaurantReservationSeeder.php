@@ -18,7 +18,7 @@ class RestaurantReservationSeeder extends Seeder
     {
         DB::table('restaurant_reservations')->insert([
             'restaurant_id' => 1,
-            'date' => date("Y-d-m"),
+            'date' => date("Y-m-d"),
             'time' => "18:00:00",
             'firstname' => Str::random(10),
             'lastname' => Str::random(10),
@@ -31,7 +31,7 @@ class RestaurantReservationSeeder extends Seeder
 
         DB::table('restaurant_reservations')->insert([
             'restaurant_id' => 1,
-            'date' => date("Y-d-m"),
+            'date' => date("Y-m-d"),
             'time' => "18:00:00",
             'firstname' => Str::random(10),
             'lastname' => Str::random(10),
@@ -43,7 +43,7 @@ class RestaurantReservationSeeder extends Seeder
         ]);
         DB::table('restaurant_reservations')->insert([
             'restaurant_id' => 1,
-            'date' => date("Y-d-m"),
+            'date' => date("Y-m-d"),
             'time' => "17:00:00",
             'firstname' => Str::random(10),
             'lastname' => Str::random(10),
@@ -56,7 +56,7 @@ class RestaurantReservationSeeder extends Seeder
 
         DB::table('restaurant_reservations')->insert([
             'restaurant_id' => 2,
-            'date' => date("Y-d-m"),
+            'date' => date("Y-m-d"),
             'time' => "18:00:00",
             'firstname' => Str::random(10),
             'lastname' => Str::random(10),
@@ -69,7 +69,7 @@ class RestaurantReservationSeeder extends Seeder
 
         DB::table('restaurant_reservations')->insert([
             'restaurant_id' => 2,
-            'date' => date("Y-d-m"),
+            'date' => date("Y-m-d"),
             'time' => "18:00:00",
             'firstname' => Str::random(10),
             'lastname' => Str::random(10),
